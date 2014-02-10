@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alexandria</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="menu">
+  <ul>
+    <% @menu.each do |item, value| -%>
+      <% if @current_menu_item == item -%>
+        <li id="current"><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
+      <% else -%>
+        <li><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
+      <% end -%>
+    <% end -%>
+  </ul>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

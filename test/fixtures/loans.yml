@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  book_id: 1
+  user_id: 1
+  starts_at: 2014-02-10 13:41:23
+  end_at: 2014-02-10 13:41:23
+  created_by: 1
+  update_by: 1
+
+two:
+  book_id: 1
+  user_id: 1
+  starts_at: 2014-02-10 13:41:23
+  end_at: 2014-02-10 13:41:23
+  created_by: 1
+  update_by: 1
