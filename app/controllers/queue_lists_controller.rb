@@ -2,7 +2,7 @@ class QueueListsController < ApplicationController
   # GET /queue_lists
   # GET /queue_lists.json
   def index
-    @queue_lists = QueueList.all
+    @queue_lists = QueueList.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb

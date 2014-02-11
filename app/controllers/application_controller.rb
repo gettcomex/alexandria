@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :open_most_important
+  before_filter :open_most_important, :authenticate_user!
+
 
   protected
     def open_most_important

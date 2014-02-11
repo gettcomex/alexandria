@@ -1,8 +1,10 @@
 class LoansController < ApplicationController
+  
+  before_filter :load_resources, only: %w(new create edit update)
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @loans = Loan.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +82,13 @@ class LoansController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  protected 
+
+  def load_resources
+  	@users = User.all
+    @books = Book.all
+
+  end 
+
 end

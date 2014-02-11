@@ -10,32 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :login %><br />
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :is_employee %><br />
-    <%= f.check_box :is_employee %>
-  </div>
-  <div class="field">
-    <%= f.label :created_by %><br />
-    <%= f.number_field :created_by %>
-  </div>
-  <div class="field">
-    <%= f.label :update_by %><br />
-    <%= f.number_field :update_by %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div id="container">
+	  <div class="field">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :login %><br />
+	    <%= f.text_field :login %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :password %><br />
+	    <%= f.text_field :password %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :is_employee %><br />
+	    <%= f.check_box :is_employee %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :created_by %><br />
+	    <%= f.number_field :created_by %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :update_by %><br />
+	    <%= f.number_field :update_by %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
   </div>
 <% end %>

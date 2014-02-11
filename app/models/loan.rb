@@ -8,17 +8,23 @@ class Loan < ActiveRecord::Base
 
   validates :update_by, presence: true 
   
-  before_save :check_user_loans
+  before_create :check_user_loans
  
+  before_validation :before_validation 
+
+  def before_validation
+  	#
+  end 
+
 
   def check_user_loans
  	
   	pessoa = User.find(self.user_id)
   	
-  	id_loans_count = pessoa.loans.select { | loan | loan.starts_at > 7.days.ago.time && loan.end_at >= Time.now}.count
+  	id_loans_count = pessoa.loans.select { | loan | loan.starts_at > 7.days.ago && loan.end_at.to_datetime >= Time.now.to_datetime}.count
 
-  	if id_loans_count == 3 && !pessoa.is_employee || id_loans_count >= 10 
-  		errors.add :max_user_loans, "O usuário #{pessoa.name} atingiu o limite de emprestimos" 
+  	if id_loans_count >= 3 && !pessoa.is_employee || id_loans_count >= 10 
+  		errors.add :limit_loans, "O usuário #{pessoa.name} atingiu o limite de emprestimos" 
   		return false 
   	end
 

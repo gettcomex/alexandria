@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div id="container">	
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Book:</b>
-  <%= @loan.book_id %>
-</p>
+	<p>
+	  <b>Book:</b>
+	  <%= @loan.book_id %>
+	</p>
 
-<p>
-  <b>User:</b>
-  <%= @loan.user_id %>
-</p>
+	<p>
+	  <b>User:</b>
+	  <%= @loan.user_id %>
+	</p>
 
-<p>
-  <b>Starts at:</b>
-  <%= @loan.starts_at %>
-</p>
+	<p>
+	  <b>Starts at:</b>
+	  <%= @loan.starts_at %>
+	</p>
 
-<p>
-  <b>End at:</b>
-  <%= @loan.end_at %>
-</p>
+	<p>
+	  <b>End at:</b>
+	  <%= @loan.end_at %>
+	</p>
 
-<p>
-  <b>Created by:</b>
-  <%= @loan.created_by %>
-</p>
+	<p>
+	  <b>Created by:</b>
+	  <%= @loan.created_by %>
+	</p>
 
-<p>
-  <b>Update by:</b>
-  <%= @loan.update_by %>
-</p>
+	<p>
+	  <b>Update by:</b>
+	  <%= @loan.update_by %>
+	</p>
 
 
-<%= link_to 'Edit', edit_loan_path(@loan) %> |
-<%= link_to 'Back', loans_path %>
+	<%= link_to 'Edit', edit_loan_path(@loan) %> |
+	<%= link_to 'Back', loans_path %>
+</div>

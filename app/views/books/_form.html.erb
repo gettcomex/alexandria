@@ -10,32 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :writer %><br />
-    <%= f.text_field :writer %>
-  </div>
-  <div class="field">
-    <%= f.label :pages %><br />
-    <%= f.number_field :pages %>
-  </div>
-  <div class="field">
-    <%= f.label :copies %><br />
-    <%= f.number_field :copies %>
-  </div>
-  <div class="field">
-    <%= f.label :created_by %><br />
-    <%= f.number_field :created_by %>
-  </div>
-  <div class="field">
-    <%= f.label :update_by %><br />
-    <%= f.number_field :update_by %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div id="container">
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :writer %><br />
+      <%= f.text_field :writer %>
+    </div>
+    <div class="field">
+      <%= f.label :pages %><br />
+      <%= f.number_field :pages %>
+    </div>
+    <div class="field">
+      <%= f.label :copies %><br />
+	  <%= f.number_field :copies %>
+	</div>
+	<div class="field">
+	  <%= f.label :created_by %><br />
+	  <%= f.number_field :created_by %>
+	</div>
+	<div class="field">
+	  <%= f.label :update_by %><br />
+	  <%= f.number_field :update_by %>
+	</div>
+	<div class="actions">
+	   <%= f.submit %>
+	</div>
+  <div id="container">
 <% end %>

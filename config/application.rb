@@ -38,6 +38,8 @@ module Alexandria
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    Alexandria::Application.config.secret_token = '978564b13b5fc5c184c4e8c71735baec00df6a4f09d7ac583645c559315b1e189ff310e091b8aeae5af6e450f3a3d4acda230db8a0f7a1a2978f61d6159105df'
+
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
