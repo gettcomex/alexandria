@@ -1,16 +1,17 @@
-<%= form_for(@queue_list) do |f| %>
-  <% if @queue_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@queue_list.errors.count, "error") %> prohibited this queue_list from being saved:</h2>
+<div id="container">
+	<%= form_for(@queue_list) do |f| %>
+	  <% if @queue_list.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@queue_list.errors.count, "error") %> prohibited this queue_list from being saved:</h2>
 
-      <ul>
-      <% @queue_list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div id="container">
+	      <ul>
+	      <% @queue_list.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+  
 	  <div class="field">
 	    <%= f.label :book_id %><br />
 	    <%= f.number_field :book_id %>
@@ -30,5 +31,5 @@
 	  <div class="actions">
 	    <%= f.submit %>
 	  </div>
-  </div>			  
-<% end %>
+	<% end %>
+</div>

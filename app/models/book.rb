@@ -5,39 +5,10 @@ class Book < ActiveRecord::Base
 
   attr_accessible :copies, :created_by, :pages, :title, :update_by, :writer
 
-  scope :by_availability, lambda{ |id|
-        joins(:)
-
-        joins(:product).where(products: {product_category_id: id}) if id.present?
-    }
-
-   book
-   		quantidade 
-
-   loan, 
-   		livros 
-   			data 
-   				so tenho a data e não status :( 
-
-
- 	select b.copies, 
-
- 	-- count(
- 			select 
- 				id 
- 			from 
- 				loans 
- 			where
- 				start_at >= Now.time.7.days.ago and 
- 				end_at >= Now.time
- 		) as copies_loan
-
- 	from 
- 		books b 
-
- 	where 
- 		id = x;
-
-
+  scope :by_availability, lambda { |id, today | 
+   	joins(:loans).where(
+   		'loans.book_id = ? and loans.starts_at >= ? and loans.end_at >= ?', 
+   		id, (today - 7.day), today)
+  }
 
 end

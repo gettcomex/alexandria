@@ -8,11 +8,9 @@ class Loan < ActiveRecord::Base
   
   after_initialize :set_default_date
   
-  before_create :check_user_loans, :set_update_user
+  before_create :user_loans_limit?, :book_availability?, :set_update_user
 
   before_update :set_create_user
-
-  
 
   private
   
@@ -34,11 +32,24 @@ class Loan < ActiveRecord::Base
   	
   end
 
+  def book_availability?
+  	book = Book.find(self.book_id)
 
-  def check_user_loans
- 	
-  	pessoa = User.find(self.user_id)
+  	loaned_books = Book.by_availability(book.id, Time.now).count
+
+  	# TODO: ambiente de testes, mudar para equal 
+  	if loaned_books >= book.copies 
+  		errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
+  		return false
+  	end 
+
+  end
+
+
+  def user_loans_limit? 
+ 	pessoa = User.find(self.user_id)
   	
+  	# TODO: melhorar a parte final do select da data de entrega, porque dois to_datetime.
   	id_loans_count = pessoa.loans.select { | loan | loan.starts_at >= 7.days.ago && loan.end_at.to_datetime >= Time.now.to_datetime}.count
 
   	if id_loans_count >= 3 && !pessoa.is_employee || id_loans_count >= 10 
