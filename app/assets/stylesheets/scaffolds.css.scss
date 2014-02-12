@@ -2,8 +2,7 @@ body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 13px;  
 }
 
 p, ol, ul, td {
@@ -35,25 +34,34 @@ div {
   }
 }
 #container {
+  background-color: #E5EDFF;
   margin: 1em auto;
-  padding: 1px;
-  width: 500px;
-  background-image:url('fundo.nav-bar.jpg');
+  padding: 10px;
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  border: 1px solid;
 }
 #menu ul li 
 {
 	padding: 2px 10px;
 	display: inline-block;
- 
-	background-color:#AE4200;
+	background-color:#D9E3E5;
   color:#FFF8EB;
   padding:10px;
   text-decoration:none;
   border-radius:10px;
 }
+#nav-bar
+{
+  background-color: #737F7B;
+  margin: 1em auto;
+  padding: 1px;
+  width: 500px;
+}
 #start_page
 {
-  background-color:#FFFFCC;
+  background-color:#E5EDFF;
   text-align: center;
   padding: 10px;  
   height: 250px;
@@ -94,14 +102,34 @@ div {
 }
 
 #link_to_button {
-  background-color:#AE4200;	
+  background-color:#A0A8A5;	
   color:#FFF8EB;
   padding: 10px 150px;
   text-decoration:none;
   border-radius:10px;
   text-align: center;
 }
-
-#sloth {
-	width: 150px;
+#table{
+  padding: 30px;  
+}
+#menu-auxiliar{
+  width: 250px;
+  padding: 20px;
+  margin-left: 50px;
+}
+#menu-bar{
+  background-color:#A0A8A5; 
+  color:#FFF8EB;
+  padding: 10px 10px;
+  text-decoration:none;
+  border-radius:10px;
+  text-align: center;
+}
+#link-table{
+  background-color:#A0A8A5; 
+  color:#FFF8EB;
+  padding: 5px;
+  text-decoration:none;
+  border-radius:10px;
+  text-align: center;
 }

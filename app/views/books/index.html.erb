@@ -1,5 +1,7 @@
 <div id="container">
-	<h1>Listing books</h1>
+	<div id="menu-auxiliar">
+		<%= link_to 'New Book', new_book_path, id: "menu-bar"%>
+	</div>
 
 	<table>
 	  <tr>
@@ -31,5 +33,4 @@
 
 	<br />
 	<%= paginate @books%>
-	<%= link_to 'New Book', new_book_path %>
 </div>

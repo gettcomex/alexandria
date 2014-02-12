@@ -1,6 +1,7 @@
 <div id="container">
-	<h1>Listing users</h1>
-
+	<div id="menu-auxiliar">
+		<%= link_to 'New User', new_user_path, id: "menu-bar"%>
+	</div>
 	<table>
 	  <tr>
 	    <th>Name</th>
@@ -9,9 +10,6 @@
 	    <th>Is employee</th>
 	    <th>Created by</th>
 	    <th>Update by</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
 	  </tr>
 
 	<% @users.each do |user| %>
@@ -31,5 +29,4 @@
 
 	<br />
 	<%= paginate @users %>
-	<%= link_to 'New User', new_user_path %>
 </div>

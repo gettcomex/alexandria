@@ -5,9 +5,10 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <meta charset="utf-8">
   </head>
   <body>
-    <div id="container">    
+    <div id="nav-bar">    
       <div id="menu">
         <ul>
           <% @menu.each do |item, value| -%>
@@ -21,5 +22,8 @@
       </div>
     </div>
     <%= yield %>
+    <div id="bottom-bar">
+    	<button onclick="goBack()">Go Back</button>
+    </div>
   </body>
 </html>
