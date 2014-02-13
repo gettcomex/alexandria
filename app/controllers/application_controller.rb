@@ -10,10 +10,11 @@ class ApplicationController < ActionController::Base
       @menu = {  
         :home 	 => { :name => 'Home', 		  :link => '/home'  }, 
         :books   => { :name => 'Livros', 	  :link => '/books' }, 
-        :loans	 => { :name => 'Empréstimos', :link => '/loans' }, 
+        :loans	 => { :name => 'Empréstimos', :link => '/loans' },
         :users 	 => { :name => 'Usuários', 	  :link => '/users' }, 
+        :queues	 => { :name => 'Reservas',    :link => '/queue_lists'},
         :my_user => { :name => 'Meu Usuário', :link => '/home'  }}
-      @current_menu_item = :books
+      @current_menu_item = :home
     end
 
 end

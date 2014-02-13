@@ -88,6 +88,7 @@ class LoansController < ApplicationController
   def load_resources
   	@users = User.all
     @books = Book.all
+    @queue_list = QueueList
 
   end 
 

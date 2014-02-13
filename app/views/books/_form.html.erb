@@ -12,29 +12,22 @@
             </div>
         <% end %>
         <div class="field">
-            <%= f.label :title %></br>
-            <%= f.text_field :title %>
+            <%= f.label :title, id:"label" %>
+            <%= f.text_field :title, id:"field" %>
         </div>
         <div class="field">
-            <%= f.label :writer %></br>
-            <%= f.text_field :writer %>
+            <%= f.label :writer, id:"label" %>
+            <%= f.text_field :writer, id:"field" %>
         </div>
         <div class="field">
-            <%= f.label :pages %></br>
-            <%= f.number_field :pages %>
+            <%= f.label :pages, id:"label" %>
+            <%= f.number_field :pages, id:"field" %>
         </div>
         <div class="field">
-            <%= f.label :copies %></br>
-      	    <%= f.number_field :copies %>
+            <%= f.label :copies, id:"label" %>
+      	    <%= f.number_field :copies, id:"field" %>
       	</div>
-      	<div class="field">
-          	<%= f.label :created_by %>
-          	<%= f.number_field :created_by %>
-      	</div>
-      	<div class="field">
-      	    <%= f.label :update_by %>
-      	    <%= f.number_field :update_by %>
-      	</div>
+
       	<div class="actions" id="button">
       	    <%= f.submit value="Salvar"%>
       	</div>

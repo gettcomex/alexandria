@@ -5,10 +5,15 @@ class Book < ActiveRecord::Base
 
   attr_accessible :copies, :created_by, :pages, :title, :update_by, :writer
 
-  scope :by_availability, lambda { |id, today | 
+  scope :by_availability, lambda { |book_id, today | 
    	joins(:loans).where(
    		'loans.book_id = ? and loans.starts_at >= ? and loans.end_at >= ?', 
-   		id, (today - 7.day), today)
+   		book_id, (today - 7.day), today)
+  }
+
+  scope :by_wait_list, lambda { |book_id|
+  	joins(:queue_lists).where(
+  		'queue_lists.book_id = ?', book_id).order('id')
   }
 
 end

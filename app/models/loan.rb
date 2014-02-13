@@ -8,7 +8,7 @@ class Loan < ActiveRecord::Base
   
   after_initialize :set_default_date
   
-  before_create :user_loans_limit?, :book_availability?, :set_update_user
+  before_create :user_loans_limit?, :can_loan?, :set_update_user
 
   before_update :set_create_user
 
@@ -32,19 +32,57 @@ class Loan < ActiveRecord::Base
   	
   end
 
-  def book_availability?
+  def can_loan? 
   	book = Book.find(self.book_id)
+  	
 
+  	if not availability_book?(book)
+  		errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
+  		return false
+  	end
+
+  	if not reserved_book?(book, self.user_id)
+  		
+  		return false
+  	end
+
+  end
+
+  def availability_book?(book)
+  	
   	loaned_books = Book.by_availability(book.id, Time.now).count
 
   	# TODO: ambiente de testes, mudar para equal 
   	if loaned_books >= book.copies 
-  		errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
   		return false
-  	end 
+  	end
+
+  	# como o rails retorna o ultimo valor, tenho que forçar.
+  	return true 
 
   end
 
+
+  def reserved_book?(book, user)
+
+  	debugger
+  	# Escopo faz a consulta mas não traz os dados da reserva :(
+   	reserved_book = QueueList.where('queue_lists.book_id = ?', book.id).order('id').limit(1)
+   	#Book.by_wait_list(book_id).limit(1)
+
+   	# passa ok
+   	if !reserved_book.any?
+   		return true
+   	end
+
+   	if reserved_book[0].user_id != user
+  		errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado"
+  		return false 
+  	end
+
+  	Book.destroy(book.id)
+
+   end
 
   def user_loans_limit? 
  	pessoa = User.find(self.user_id)

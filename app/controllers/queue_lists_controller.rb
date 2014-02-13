@@ -1,6 +1,7 @@
 class QueueListsController < ApplicationController
   # GET /queue_lists
   # GET /queue_lists.json
+  
   def index
     @queue_lists = QueueList.page(params[:page]).per(5)
 
@@ -80,4 +81,5 @@ class QueueListsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

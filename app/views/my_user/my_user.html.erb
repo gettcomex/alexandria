@@ -1,0 +1,28 @@
+<div id="container">
+	<div id="menu-auxiliar">
+	</div>
+	<table>
+	  <tr>
+	    <th>Book</th>
+	    <th>User</th>
+	    <th>Starts at</th>
+	    <th>End at</th>
+	  </tr>
+
+	<% @loans.each do |loan| %>
+	  <tr>
+	    <td><%= loan.book_id %></td>
+	    <td><%= loan.user_id %></td>
+	    <td><%= loan.starts_at %></td>
+	    <td><%= loan.end_at %></td>
+	    <td><%= link_to 'Show', loan %>
+	    <%= link_to 'Edit', edit_loan_path(loan) %>
+	    <%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+	<%= paginate @loans%>
+		
+</div>

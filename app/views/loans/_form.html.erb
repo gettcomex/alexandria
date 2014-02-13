@@ -27,9 +27,11 @@
 		    <%= f.text_field :end_at, :disabled => true %>
 		</div>
 		<div class="actions" id="button">
-		    <%= f.submit value="Salvar"%>
+		    
 		    <% if @loan.errors.any? %>
 		    	<a href="/queue_lists/new" rel="facebox">Reservar Livro</a>
+		   	<% else %>
+		   		<%= f.submit value="Salvar"%>
 		    <% end %>
 		</div>
 	<% end %>

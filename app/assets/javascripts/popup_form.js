@@ -12,13 +12,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-function goBack()
-  {
-  window.history.back()
-  }
-
-jQuery(document).ready(function($) {
-  $('a[rel*=facebox]').facebox()
-}) 
