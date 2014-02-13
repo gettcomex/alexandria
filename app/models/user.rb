@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :created_by, :is_employee, :login, :name, :password, :update_by
 
-
 end

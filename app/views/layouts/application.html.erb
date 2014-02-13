@@ -2,29 +2,39 @@
 <html>
   <head>
     <title>Alexandria</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "jquery" %>
+    <%= stylesheet_link_tag "facebox" %>
+    <%= javascript_include_tag "facebox" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
   </head>
-  <body>
-    <div id="nav-bar">    
-      <div id="menu">
-        <ul>
-          <% @menu.each do |item, value| -%>
-            <% if @current_menu_item == item -%>
-              <li id="current"><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
-            <% else -%>
-              <li><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
-            <% end -%>
-          <% end -%>
-        </ul>
-      </div>
-    </div>
-    <%= yield %>
-    <div id="bottom-bar">
-    	<button onclick="goBack()">Go Back</button>
-    	<a href="/queue_lists/new" rel="facebox">text</a>
-    </div>
-  </body>
+    <body>
+        <div id="user_nav">
+            <% if user_signed_in? %>
+                Signed in as <%= current_user.email %>. Not you?
+                <%= link_to "Sign out", destroy_user_session_path, id:"devise"%>
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path, id:"devise" %> or <%= link_to "Sign in", new_user_session_path, id:"devise" %>
+            <% end %>
+        </div>  
+        <div id="nav-bar">    
+            <div id="menu">
+                <ul>
+                    <% @menu.each do |item, value| -%>
+                        <% if @current_menu_item == item -%>
+                            <li id="current"><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
+                        <% else -%>
+                            <li><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
+                        <% end -%>
+                    <% end -%>
+                </ul>
+            </div>
+        </div>
+        <%= yield %>
+        <div id="bottom-bar">
+    	      <button onclick="goBack()">Go Back</button>
+        </div>
+    </body>
 </html>
