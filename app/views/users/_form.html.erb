@@ -30,10 +30,12 @@
 	  	<div class="field"><%= f.label :password_confirmation %><br />
 	  		<%= f.password_field :password_confirmation %>
 	  	</div>
-		<div class="field">
-		    <%= f.label :is_employee %><br />
-		    <%= f.check_box :is_employee %>
-  		</div>
+	  	<% if current_user.is_employee? %>
+			<div class="field">
+		    	<%= f.label :is_employee %><br />
+		    	<%= f.check_box :is_employee %>
+  			</div>
+  		<% end %>
   		<div class="actions" id="button">
     		<%= f.submit value="Salvar"%>
   		</div>
