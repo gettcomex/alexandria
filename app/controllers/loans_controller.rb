@@ -16,6 +16,7 @@ class LoansController < ApplicationController
   # GET /loans/1.json
   def show
     @loan = Loan.find(params[:id])
+    authorize! :read, @loan
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,6 +38,7 @@ class LoansController < ApplicationController
   # GET /loans/1/edit
   def edit
     @loan = Loan.find(params[:id])
+    authorize! :update, @loan
   end
 
   # POST /loans
@@ -53,8 +55,10 @@ class LoansController < ApplicationController
 	        format.html { render action: "new" }
 	        format.json { render json: @loan.errors, status: :unprocessable_entity }
 	      end
+	    send_mail(@loan)
 	    end
 	else
+		# Reserva de livros, não encontramos outra maneira 
 		@queuelist = QueueList.new(params[:loan])
 		respond_to do |format|
 	      if @queuelist.save
@@ -64,7 +68,14 @@ class LoansController < ApplicationController
 	      end
 	    end
 	end
-		    
+
+  end
+
+  def send_mail(loan)
+  	user = User.find(params[:loan][:user_id])
+  	book = Book.find(loan.book_id)
+
+    UserMailer.loan_confirmation(user, book, loan).deliver
   end
 
   # PUT /loans/1

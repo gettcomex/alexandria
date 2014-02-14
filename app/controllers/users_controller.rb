@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  load_and_authorize_resource
+
   def index
     @users = User.page(params[:page]).per(5)
 
@@ -40,11 +42,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-  	debugger
     @user = User.new(params[:user])
-    puts @user.name
+    
     respond_to do |format|
       if @user.save
+      	
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -57,8 +59,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
-
+  	@user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

@@ -3,29 +3,29 @@
 		<%= link_to 'New Loan', new_loan_path, id: "menu-bar"%>
 	</div>
 	<table>
-	  <tr id="tr_cabecalho">
+	  <tr>
 	    <th>Book</th>
 	    <th>User</th>
 	    <th>Starts at</th>
 	    <th>End at</th>
-	    <th>Created by</th>
-	    <th>Update by</th>
 	    <th></th>
 	    <th></th>
-	    <th></th>
+	    <% if can? :destroy, @loan %>
+	    	<th></th>
+	  	<%end%>
 	  </tr>
 
 	<% @loans.each do |loan| %>
 	  <tr>
-	    <td><%= loan.book_id %></td>
-	    <td><%= loan.user_id %></td>
+	    <td><%= Book.find(loan.book_id).title.capitalize %></td>
+	    <td><%= User.find(loan.user_id).name.capitalize %></td>
 	    <td><%= loan.starts_at.strftime("%d/%m/%y") %></td>
 	    <td><%= loan.end_at.strftime("%d/%m/%y") %></td>
-	    <td><%= loan.created_by %></td>
-	    <td><%= loan.update_by %></td>
 	    <td><%= link_to 'Show', loan %></td>
 	    <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
+	    <% if can? :destroy, @loan %>
 	    <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    <%end%>
 	  </tr>
 	<% end %>
 	</table>

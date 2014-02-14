@@ -3,34 +3,23 @@
 
 	<p>
 	  <b>Book:</b>
-	  <%= @loan.book_id %>
+	  <%= Book.find(@loan.book_id).title.capitalize %>
 	</p>
 
 	<p>
 	  <b>User:</b>
-	  <%= @loan.user_id %>
+	  <%= User.find(@loan.user_id).name.capitalize %>
 	</p>
 
 	<p>
 	  <b>Starts at:</b>
-	  <%= @loan.starts_at %>
+	  <%= @loan.starts_at.strftime("%d/%m/%Y") %>
 	</p>
 
 	<p>
 	  <b>End at:</b>
-	  <%= @loan.end_at %>
+	  <%= @loan.end_at.strftime("%d/%m/%Y") %>
 	</p>
-
-	<p>
-	  <b>Created by:</b>
-	  <%= @loan.created_by %>
-	</p>
-
-	<p>
-	  <b>Update by:</b>
-	  <%= @loan.update_by %>
-	</p>
-
 
 	<%= link_to 'Edit', edit_loan_path(@loan) %> |
 	<%= link_to 'Back', loans_path %>

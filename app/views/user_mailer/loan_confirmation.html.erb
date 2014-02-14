@@ -1,0 +1,15 @@
+<h4>Confirmação de empréstimo de livros</h4>
+
+<p><%= @user.name %>,</p>
+
+<p>Segue para conferência:</p> 
+
+<p>Livro: <%= @book.title %>, Author. <%= @book.writer %>,</p>
+
+<p>Empréstimo realizado em: <%= @loan.starts_at.strftime("%d/%m/%Y") %></p>
+
+<p>Com <b>entrega</b> para: <%= @loan.end_at.strftime("%d/%m/%Y") %></p>
+
+<p>Atenciosamente,</p>
+
+Biblioteca de Alexandria

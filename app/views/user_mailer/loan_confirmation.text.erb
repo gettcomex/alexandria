@@ -1,0 +1,15 @@
+Confirmação de empréstimo de livros
+
+<%= @user.name %>,
+
+Segue para conferência:
+
+Livro: <%= @book.title %>, Author. <%= @book.writer %>,
+
+Empréstimo realizado em: <%= @loan.starts_at.strftime("%d/%m/%Y") %>
+
+Com entrega para: <%= @loan.end_at.strftime("%d/%m/%Y") %>
+
+Atenciosamente,
+
+Biblioteca de Alexandria

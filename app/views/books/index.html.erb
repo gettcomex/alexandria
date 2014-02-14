@@ -1,6 +1,8 @@
 <div id="container">
 	<div id="menu-auxiliar">
-		<%= link_to 'New Book', new_book_path, id: "menu-bar"%>
+		<%if can? :create, @books%>
+			<%= link_to 'New Book', new_book_path, id: "menu-bar"%>
+		<%end%>	
 	</div>
 
 	<table>
@@ -9,11 +11,15 @@
 	    <th>Writer</th>
 	    <th>Pages</th>
 	    <th>Copies</th>
-	    <th>Created by</th>
-	    <th>Update by</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
+	    <%if can? :read, @books%>
+	    	<th></th>
+	    <%end%>	
+	    <%if can? :update, @books%>
+	    	<th></th>
+	    <%end%>	
+	    <%if can? :destroy, @books%>	
+	    	<th></th>
+	    <%end%>
 	  </tr>
 
 	<% @books.each do |book| %>
@@ -22,11 +28,15 @@
 	    <td><%= book.writer %></td>
 	    <td><%= book.pages %></td>
 	    <td><%= book.copies %></td>
-	    <td><%= book.created_by %></td>
-	    <td><%= book.update_by %></td>
-	    <td><%= link_to 'Show', book %></td>
-	    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-	    <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  	<%if can? :read, @books%>
+	  		<td><%= link_to 'Show', book %></td>
+	    <% end %>
+	    <%if can? :update, @books%>
+	    	<td><%= link_to 'Edit', edit_book_path(book) %></td>
+	    <%end%>
+	    <%if can? :destroy, @books%>
+	    	<td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	 	<%end%>
 	  </tr>
 	<% end %>
 	</table>

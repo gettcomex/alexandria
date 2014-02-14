@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   # GET /books
   # GET /books.json
+  load_and_authorize_resource
 
   def index
     @books = Book.page(params[:page]).per(5)
@@ -37,6 +38,7 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+
   end
 
   # POST /books

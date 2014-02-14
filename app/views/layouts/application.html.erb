@@ -10,7 +10,7 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
   </head>
-    <body>
+    <body>   	
         <div id="user_nav">
             <% if user_signed_in? %>
                 Signed in as <%= current_user.email %>. Not you?
@@ -18,7 +18,7 @@
             <% else %>
                 <%= link_to "Sign up", new_user_registration_path, id:"devise" %> or <%= link_to "Sign in", new_user_session_path, id:"devise" %>
             <% end %>
-        </div>  
+        </div>
         <div id="nav-bar">    
             <div id="menu">
                 <ul>
@@ -29,9 +29,12 @@
                             <li><a href="<%= value[:link] %>"><%= value[:name] %></a></li>
                         <% end -%>
                     <% end -%>
+                    <li id="current"><%= link_to 'Meu Usuário', @user = current_user %></li>
                 </ul>
             </div>
+            <%= flash_messages %>
         </div>
+     
         <%= yield %>
         <div id="bottom-bar">
     	      <button onclick="goBack()">Go Back</button>

@@ -17,7 +17,11 @@
 		</div>
 		<div class="field">
 		    <%= f.label :user_id, id: "label" %>
-		    <%= f.collection_select :user_id, @users, :id, :name %>
+		    <% if current_user.is_employee? %>
+		    	<%= f.collection_select :user_id, @users, :id, :name %>
+		    <% else %>
+		    	<%= f.collection_select :user_id, @users, :id, :name, {:selected => current_user.id}, {:disabled => true } %>
+		    <% end %>
 		</div>
 		<div class="field">
 		    <%= f.label :starts_at %>
