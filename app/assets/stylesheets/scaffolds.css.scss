@@ -170,3 +170,11 @@ div {
     margin-left: 80px;
 }
 
+tr:nth-child(even) {
+  background-color: #708090;
+}
+
+
+tr:nth-child(odd) {
+  background-color: #FFF0F5;
+}

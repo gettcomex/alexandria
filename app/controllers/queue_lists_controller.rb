@@ -42,7 +42,7 @@ class QueueListsController < ApplicationController
   # POST /queue_lists.json
   def create
     @queue_list = QueueList.new(params[:queue_list])
-
+    
     respond_to do |format|
       if @queue_list.save
         format.html { redirect_to @queue_list, notice: 'Queue list was successfully created.' }

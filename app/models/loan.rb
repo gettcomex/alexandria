@@ -10,7 +10,7 @@ class Loan < ActiveRecord::Base
   
   before_create :user_loans_limit?, :can_loan?, :set_update_user
 
-  before_update :set_create_user
+  before_update :can_user_renew_loan?
 
   private
   
@@ -30,6 +30,17 @@ class Loan < ActiveRecord::Base
 
   def set_update_user
   	
+  end
+
+  def can_user_renew_loan?
+
+  	renew_loan_book = Book.find(self.book_id)
+
+  	if not reserved_book?(renew_loan_book, self.user_id)
+  		return false
+  	end
+
+  	return true
   end
 
   def can_loan? 
@@ -65,7 +76,6 @@ class Loan < ActiveRecord::Base
 
   def reserved_book?(book, user)
 
-  	debugger
   	# Escopo faz a consulta mas não traz os dados da reserva :(
    	reserved_book = QueueList.where('queue_lists.book_id = ?', book.id).order('id').limit(1)
    	#Book.by_wait_list(book_id).limit(1)
@@ -76,11 +86,11 @@ class Loan < ActiveRecord::Base
    	end
 
    	if reserved_book[0].user_id != user
-  		errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado"
+  		errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado para outro usuário"
   		return false 
   	end
 
-  	Book.destroy(book.id)
+  	QueueList.delete(reserved_book[0].id)
 
    end
 

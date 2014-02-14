@@ -28,10 +28,16 @@
 		</div>
 		<div class="actions" id="button">
 		    
-		    <% if @loan.errors.any? %>
-		    	<a href="/queue_lists/new" rel="facebox">Reservar Livro</a>
+		    <% if @loan.errors[:all_loaned_books].any? %>   
+		    	 
+		    	 <% teste = QueueList.new(book_id:@loan.book_id, user_id:@loan.user_id) %>
+
+		    	 <%= render "queue_lists/form", queue_list: teste %>
+		   
+
+		    	<a href="/queue_lists/new" rel="facebox">Não funciona como era pra ser :(</a>
 		   	<% else %>
-		   		<%= f.submit value="Salvar"%>
+		   		<%= f.submit value="Salvar", :name => "loan_submit"%>
 		    <% end %>
 		</div>
 	<% end %>

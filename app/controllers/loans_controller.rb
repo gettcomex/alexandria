@@ -42,17 +42,29 @@ class LoansController < ApplicationController
   # POST /loans
   # POST /loans.json
   def create
-    @loan = Loan.new(params[:loan])
-
-    respond_to do |format|
-      if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
-        format.json { render json: @loan, status: :created, location: @loan }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @loan.errors, status: :unprocessable_entity }
-      end
-    end
+  	
+    if params[:loan_submit] == 'Salvar'
+	    @loan = Loan.new(params[:loan])
+	    respond_to do |format|
+	      if @loan.save
+	        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+	        format.json { render json: @loan, status: :created, location: @loan }
+	      else
+	        format.html { render action: "new" }
+	        format.json { render json: @loan.errors, status: :unprocessable_entity }
+	      end
+	    end
+	else
+		@queuelist = QueueList.new(params[:loan])
+		respond_to do |format|
+	      if @queuelist.save
+	        format.html { redirect_to @queuelist, notice: 'Queue was successfully created.' }
+	      else
+	        format.html { render action: "new" }
+	      end
+	    end
+	end
+		    
   end
 
   # PUT /loans/1
