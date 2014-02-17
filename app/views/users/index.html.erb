@@ -6,7 +6,9 @@
 	    <th>Name</th>
 	    <th>Login</th>
 	    <th>E-mail</th>
+	    <% if current_user.is_employee? %>
 	    <th>Is employee</th>
+	    <%end%>
 	  </tr>
 
 	<% @users.each do |user| %>
@@ -14,7 +16,9 @@
 	    <td><%= user.name %></td>
 	    <td><%= user.login %></td>
 	    <td><%= user.email %></td>
-	    <td><%= user.is_employee %></td>
+	    <% if current_user.is_employee? %>
+	    	<td><%= user.is_employee %></td>
+	   	<% end %>
 	    <td><%= link_to 'Show', user %></td>
 	    <td><%= link_to 'Edit', edit_user_path(user) %></td>
 	    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
