@@ -1,0 +1,17 @@
+.ux-toast{
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  background-color:#85D683;
+  border-radius:5px;
+  border:1px solid #256812;
+  color: #256812;
+  font-family:helvetica,arial,verdana,sans-serif;
+  font-size:13px;
+  font-weight:bold;
+  height:40px;
+  line-height:35px;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  z-index:99999;
+}

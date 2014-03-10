@@ -1,0 +1,1232 @@
+@import url(../../../extjs/resources/css/neptune.css);
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_activate {
+  background-image: url("../images/icons/activate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_active {
+  background-image: url("../images/icons/active.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_add {
+  background-image: url("../images/icons/add.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_arrow {
+  background-image: url("../images/icons/arrow.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_atrasado {
+  background-image: url("../images/icons/atrasado.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_automatic_payment {
+  background-image: url("../images/icons/automatic_payment.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_calculate {
+  background-image: url("../images/icons/calculate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_chat {
+  background-image: url("../images/icons/chat.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_calculate {
+  background-image: url("../images/icons/calculate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_cancel {
+  background-image: url("../images/icons/cancel.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_charge_cancel {
+  background-image: url("../images/icons/charge_cancel.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_cce_ok {
+  background-image: url("../images/icons/cce_ok.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_charge_grid {
+  background-image: url("../images/icons/charge_grid.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_charges {
+  background-image: url("../images/icons/charges.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_clear {
+  background-image: url("../images/icons/clear.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_clone {
+  background-image: url("../images/icons/clone.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_complement {
+  background-image: url("../images/icons/complement.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_complement_grid {
+  background-image: url("../images/icons/complement_grid.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_complements {
+  background-image: url("../images/icons/complements.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_conciliado {
+  background-image: url("../images/icons/conciliado.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_conciliate {
+  background-image: url("../images/icons/conciliate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_conciliation {
+  background-image: url("../images/icons/conciliation.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_consult {
+  background-image: url("../images/icons/consult.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_correction_letter {
+  background-image: url("../images/icons/correction_letter.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_closing_third {
+  background-image: url("../images/icons/closing_third.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_credito {
+  background-image: url("../images/icons/credito.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_cross {
+  background-image: url("../images/icons/cross.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_csv {
+  background-image: url("../images/icons/csv.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_danfe {
+  background-image: url("../images/icons/danfe.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_debito {
+  background-image: url("../images/icons/debito.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_delete {
+  background-image: url("../images/icons/delete.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_discard_downs {
+  background-image: url("../images/icons/discard_downs.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_discard_launch_number {
+  background-image: url("../images/icons/discard_launch_number.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_disconciliate {
+  background-image: url("../images/icons/disconciliate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_display_only {
+  background-image: url("../images/icons/display_only.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_distribution_stock_grid {
+  background-image: url("../images/icons/distribution_stock_grid.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_disunite {
+  background-image: url("../images/icons/disunite.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_division {
+  background-image: url("../images/icons/division.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_document {
+  background-image: url("../images/icons/document.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_document_grid {
+  background-image: url("../images/icons/document_grid.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_down {
+  background-image: url("../images/icons/down.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_down_mult {
+  background-image: url("../images/icons/down_mult.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_down_mult_grouped {
+  background-image: url("../images/icons/down_mult_grouped.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_download {
+  background-image: url("../images/icons/download.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_duplicar {
+  background-image: url("../images/icons/duplicar.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_edit {
+  background-image: url("../images/icons/edit.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_edit_option {
+  background-image: url("../images/icons/edit_option.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_em_aberto {
+  background-image: url("../images/icons/em_aberto.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_excel {
+  background-image: url("../images/icons/excel.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_export_txt {
+  background-image: url("../images/icons/export_txt.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_export_xml {
+  background-image: url("../images/icons/export_xml.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_extrato {
+  background-image: url("../images/icons/extrato.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_filter {
+  background-image: url("../images/icons/filter.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_filter_clean {
+  background-image: url("../images/icons/filter_clean.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_finance_partial {
+  background-image: url("../images/icons/finance_partial.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_finance_total {
+  background-image: url("../images/icons/finance_total.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_financial_pi {
+  background-image: url("../images/icons/financial_pi.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_generate_billet {
+  background-image: url("../images/icons/generate_billet.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_generate_duplicate {
+  background-image: url("../images/icons/generate_duplicate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_generate_input_nfe {
+  background-image: url("../images/icons/generate_input_nfe.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_generate_output_nfe {
+  background-image: url("../images/icons/generate_output_nfe.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_help {
+  background-image: url("../images/icons/help.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_help_grid {
+  background-image: url("../images/icons/help_grid.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_html {
+  background-image: url("../images/icons/html.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_intern_filter {
+  background-image: url("../images/icons/intern_filter.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_inventory {
+  background-image: url("../images/icons/inventory.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_inventary_generate {
+  background-image: url("../images/icons/inventary_generate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_inventory_view {
+  background-image: url("../images/icons/inventory_view.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_import {
+  background-image: url("../images/icons/import.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_inactivate {
+  background-image: url("../images/icons/inactivate.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_inactive {
+  background-image: url("../images/icons/inactive.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_import_extract {
+  background-image: url("../images/icons/import_extract.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_import_xml {
+  background-image: url("../images/icons/import_xml.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_label {
+  background-image: url("../images/icons/label.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_launch_payable_receivable {
+  background-image: url("../images/icons/launch_payable_receivable.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_launch_grouped {
+  background-image: url("../images/icons/launch_grouped.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_loaded {
+  background-image: url("../images/icons/loaded.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_mark_read {
+  background-image: url("../images/icons/mark_read.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_master_nfe {
+  background-image: url("../images/icons/master_nfe.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_mesclar {
+  background-image: url("../images/icons/mesclar.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_mother_daughters {
+  background-image: url("../images/icons/mother_daughters.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_new_option {
+  background-image: url("../images/icons/new_option.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_nfe_younglet {
+  background-image: url("../images/icons/nfe_younglet.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_nfe_devolution {
+  background-image: url("../images/icons/nfe_devolution.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_nfs_related {
+  background-image: url("../images/icons/nfs_related.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_others {
+  background-image: url("../images/icons/others.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_paid_by_buyer {
+  background-image: url("../images/icons/paid_by_buyer.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_paid_by_import {
+  background-image: url("../images/icons/paid_by_import.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_paid_by_others {
+  background-image: url("../images/icons/paid_by_others.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_pago {
+  background-image: url("../images/icons/pago.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_pago_parcialmente {
+  background-image: url("../images/icons/pago_parcialmente.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_permissoes {
+  background-image: url("../images/icons/permissoes.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_previsto {
+  background-image: url("../images/icons/previsto.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_produto_igual_di {
+  background-image: url("../images/icons/produto_igual_di.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_sefaz {
+  background-image: url("../images/icons/sefaz.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_send {
+  background-image: url("../images/icons/send.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_send_email {
+  background-image: url("../images/icons/send_email.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_search {
+  background-image: url("../images/icons/search.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_stock_move {
+  background-image: url("../images/icons/stock_move.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_reajustar {
+  background-image: url("../images/icons/reajustar.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_refresh {
+  background-image: url("../images/icons/refresh.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_refund {
+  background-image: url("../images/icons/refund.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_remittance {
+  background-image: url("../images/icons/remittance.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_return {
+  background-image: url("../images/icons/return.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_reports {
+  background-image: url("../images/icons/reports.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_tab_entry {
+  background-image: url("../images/icons/tab_entry.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_tab_system_info {
+  background-image: url("../images/icons/tab_system_info.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_tab_report {
+  background-image: url("../images/icons/tab_report.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_transferencia {
+  background-image: url("../images/icons/transferencia.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_tick {
+  background-image: url("../images/icons/tick.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_useless {
+  background-image: url("../images/icons/useless.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_upload_file {
+  background-image: url("../images/icons/upload_file.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_update_status {
+  background-image: url("../images/icons/update_status.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_view {
+  background-image: url("../images/icons/view.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_vence_hoje {
+  background-image: url("../images/icons/vence_hoje.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_verify_declaration {
+  background-image: url("../images/icons/verify_declaration.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_view_option {
+  background-image: url("../images/icons/view_option.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_view_moviment {
+  background-image: url("../images/icons/view_moviment.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_xls {
+  background-image: url("../images/icons/xls.png");
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_xml {
+  background-image: url("../images/icons/xml.png");
+}
+
+/* line 128, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_page_next {
+  background-image: url("../images/grid/page-next.gif");
+}
+
+/* line 129, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_page_next_disabled {
+  background-image: url("../images/grid/page-next-disabled.gif");
+}
+
+/* line 130, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_page_prev {
+  background-image: url("../images/grid/page-prev.gif");
+}
+
+/* line 131, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_page_prev_disabled {
+  background-image: url("../images/grid/page-prev-disabled.gif");
+}
+
+/* line 133, /Users/gett/projects/smarter/src/public/resources/sass/_icons.scss */
+.ico_month {
+  background-image: url(../../extjs/resources/neptune/images/form/date-trigger.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_body.scss */
+.generated_html {
+  width: 100% !important;
+}
+
+/* line 5, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_body.scss */
+.x-mask {
+  background: #BFBFBF !important;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-small {
+  background-color: #EAEAEA !important;
+  border: 1px solid #D0D0D0 !important;
+  background-image: none !important;
+  color: black !important;
+}
+
+/* line 8, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-medium {
+  background-color: #EAEAEA !important;
+  border: 1px solid #D0D0D0 !important;
+  background-image: none !important;
+  color: black !important;
+}
+
+/* line 15, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-toolbar-small {
+  background-color: #EAEAEA !important;
+  border: 1px solid #D0D0D0 !important;
+  background-image: none !important;
+  color: black !important;
+}
+
+/* line 22, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-small .x-btn-inner {
+  color: black !important;
+  font-weight: normal;
+}
+
+/* line 27, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-medium .x-btn-inner {
+  color: black !important;
+  font-weight: normal;
+}
+
+/* line 32, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.btn_calculate {
+  background-color: #4266BF !important;
+  border: 1px solid #304891 !important;
+}
+
+/* line 37, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.btn_calculate .x-btn-inner {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* line 42, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.btn_save {
+  background-color: #60B15E !important;
+  border: 1px solid #579A44 !important;
+  background-image: none !important;
+}
+
+/* line 48, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.btn_save .x-btn-inner {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* line 53, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-toolbar-small {
+  border: 1px solid #D0D0D0 !important;
+}
+
+/* line 57, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-toolbar-small .x-btn-inner {
+  font-size: 11px !important;
+  color: black !important;
+}
+
+/* line 62, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.btn_fast {
+  background-color: transparent !important;
+  border: transparent !important;
+}
+
+/* line 67, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-btn-default-toolbar-small .x-btn-inner {
+  font-weight: normal !important;
+}
+
+/* line 72, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-menu-item-active {
+  background-color: #EAEAEA;
+}
+
+/* line 76, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-menu-item-disabled {
+  background-color: #EAEAEA;
+  cursor: default !important;
+}
+
+/* line 81, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.x-menu-item-disabled a, .x-menu-item-disabled a span {
+  cursor: default !important;
+  text-decoration: none;
+}
+
+/* line 86, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_button.scss */
+.obligatory {
+  color: red;
+  font-weight: bold;
+}
+
+/*
+ * Fieldset
+ */
+/* line 4, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_title .x-fieldset-header-text {
+  color: #2B477D !important;
+  font-family: 'Bitter', sans-serif !important;
+  font-size: 14px;
+}
+
+/* line 10, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_subtitle .x-fieldset-header-text {
+  color: #2B477D !important;
+  font-family: 'Bitter', sans-serif !important;
+  font-size: 13px;
+}
+
+/* line 16, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_title {
+  border-color: #BFBFBF !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  margin: 0px !important;
+  margin-bottom: 10px !important;
+  padding: 0px !important;
+  padding-top: 10px !important;
+}
+
+/* line 27, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_subtitle {
+  border-color: #BFBFBF !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  margin: 0px !important;
+  margin-bottom: 10px !important;
+  padding: 0px !important;
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+}
+
+/* line 39, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_grid .x-fieldset-header-text {
+  color: #2B477D !important;
+  font-family: 'Bitter', sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* line 45, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_grid {
+  padding: 0px;
+  border-color: #BFBFBF !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+/* line 53, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_despaly .x-fieldset-header-text {
+  font-family: 'Bitter', sans-serif !important;
+  font-size: 14px;
+}
+
+/* line 58, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.fieldset_despaly {
+  color: #2B477D !important;
+  background-color: #F9EEB8 !important;
+  border: 1px solid #BFBFBF !important;
+}
+
+/* line 64, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.disabled {
+  color: #888888;
+}
+
+/* line 69, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.field_readonly {
+  color: #888888 !important;
+}
+
+/*
+ * Fontes
+ */
+/* line 76, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-item-label {
+  font: normal 12px/22px helvetica, arial, verdana, sans-serif;
+}
+
+/* line 81, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-item, .x-form-field {
+  font: normal 12px helvetica, arial, verdana, sans-serif;
+}
+
+/* line 86, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-boundlist-item {
+  font-size: 12px;
+}
+
+/* line 90, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-boundlist-selected {
+  background: #E0E0E0;
+  border-color: #E0E0E0;
+}
+
+/* line 95, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-boundlist-item-over {
+  background: #E0E0E0;
+  border-color: #E0E0E0;
+}
+
+/* line 101, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-numberfield {
+  font: 12px "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  color: black;
+  border-color: #7D7D7D #ACACAC #ACACAC #ACACAC !important;
+}
+
+/* line 107, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-text {
+  border-color: #7D7D7D #ACACAC #ACACAC #ACACAC !important;
+}
+
+/* line 112, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-trigger {
+  border-left: 1px solid #ACACAC;
+}
+
+/* line 116, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-trigger-wrap {
+  border-color: #7D7D7D #ACACAC #ACACAC #ACACAC !important;
+}
+
+/* line 120, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-form-display-field {
+  margin-top: 0px;
+  font: 12px "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+}
+
+/* line 125, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.display_field_form {
+  margin-top: 4px;
+}
+
+/* line 129, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-month {
+  border-width: 1px 1px 1px 0px !important;
+  border-radius: 0px !important;
+  border-color: #7D7D7D #ACACAC #ACACAC #ACACAC !important;
+  background: none !important;
+}
+
+/* line 137, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-panel-header-text-container-default {
+  color: #2C4681 !important;
+}
+
+/* line 141, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-panel-header-default {
+  background-color: #E0E0E0 !important;
+  border: 1px solid #BFBFBF !important;
+}
+
+/* line 146, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_form.scss */
+.x-panel-header-default-horizontal {
+  padding: 5px !important;
+}
+
+/* line 2, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-body {
+  border-color: #BFBFBF !important;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+/* line 8, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.grid_not_tab {
+  border-left-width: 1px !important;
+  border-right-width: 1px !important;
+}
+
+/* line 13, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-cell-inner {
+  line-height: 20px;
+  padding: 5px 6px;
+}
+
+/* line 18, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-header-ct {
+  background-color: #E0E0E0;
+}
+
+/* line 22, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-row .x-grid-cell {
+  font: 11px helvetica,arial,verdana,sans-serif;
+}
+
+/* line 26, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-row-selected .x-grid-td {
+  background-color: #E0E0E0 !important;
+  border-color: #E0E0E0 !important;
+}
+
+/* line 31, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-row-over .x-grid-td {
+  border-color: #EEEEEE;
+  background-color: #EEEEEE;
+}
+
+/* line 37, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-column-header {
+  background-color: #E0E0E0;
+  font: bold 12px helvetica;
+}
+
+/* line 44, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-column-header-over,
+.x-column-header-sort-ASC,
+.x-column-header-sort-DESC {
+  background-image: none;
+  background-color: #EEEEEE;
+}
+
+/* line 49, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-column-header-trigger {
+  background-color: #EEEEEE;
+}
+
+/* line 53, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-column-header-inner .x-column-header-text {
+  color: #3A3A3A;
+  font-weight: lighter;
+}
+
+/* line 59, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-tick {
+  background-image: url("../images/icons/tick.png");
+  height: 16px;
+  margin-left: 10px;
+  width: 16px;
+}
+
+/* line 66, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-cross {
+  background-image: url("../images/icons/cross.png");
+  height: 16px;
+  margin-left: 10px;
+  width: 16px;
+}
+
+/* line 73, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_grid.scss */
+.x-grid-row-summary .x-grid-cell, .x-grid-row-summary .x-grid-rowwrap, .x-grid-row-summary .x-grid-cell-rowbody {
+  font-weight: bold !important;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_qtip.scss */
+.x-tip {
+  background-color: #F9EEB8 !important;
+  -moz-border-radius: 3px !important;
+  -webkit-border-radius: 3px !important;
+  border-radius: 3px !important;
+  border: 1px solid #C7BE93 !important;
+  color: #555 !important;
+  right: 10px !important;
+  padding: 5px !important;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+}
+
+/* line 14, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_qtip.scss */
+.x-tip-body-default {
+  font-size: 11px !important;
+  overflow: visible !important;
+}
+
+/* line 19, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_qtip.scss */
+.x-tip-body-form-invalid {
+  font-size: 11px;
+}
+
+/* line 23, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_qtip.scss */
+.x-list-plain {
+  font-size: 11px;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default .x-tab-inner {
+  color: #545454;
+  font-weight: normal;
+}
+
+/* line 6, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default-active .x-tab-inner {
+  color: black;
+  font-weight: bold;
+}
+
+/* line 11, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default {
+  border-color: #D0D0D0 !important;
+  background: #F1F1F1 !important;
+  border-radius: 3px 3px 0px 0px !important;
+}
+
+/* line 17, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default-top {
+  background: #F1F1F1;
+  padding: 5px 12px 7px !important;
+  top: 2px !important;
+}
+
+/* line 23, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default-top-active, .x-tab-default-left-active, .x-tab-default-right-active {
+  border-bottom-color: #D0D0D0;
+}
+
+/* line 27, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default-active {
+  background: none !important;
+  background-color: #E2E2E2 !important;
+  border-bottom: none;
+  border-color: #D0D0D0 !important;
+  border-radius: 3px 3px 0px 0px !important;
+  padding: 7px 12px 7px !important;
+  top: 0px !important;
+}
+
+/* line 37, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-bar-strip-default {
+  background-color: #EEEEEE;
+  border-color: #EEEEEE;
+}
+
+/* line 42, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-bar-body-default-top {
+  padding-bottom: 0px;
+}
+
+/* line 46, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-bar-strip-default-top {
+  background-color: #D0D0D0 !important;
+  height: 1px;
+}
+
+/* line 51, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-bar-strip {
+  bottom: 5px !important;
+}
+
+/* line 55, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-bar-horizontal .x-tab-bar-strip {
+  position: relative;
+  z-index: 9;
+}
+
+/* line 64, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_tab.scss */
+.x-tab-default .x-tab-close-btn {
+  right: 5px !important;
+  top: 5px !important;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-toolbar-footer {
+  background: none repeat scroll 0 0 transparent;
+  border-color: #D9D9D9;
+  border-radius: 6px 6px 4px 4px;
+}
+
+/* line 7, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-menu-item-text {
+  font-size: 12px;
+}
+
+/* line 11, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-menu-item {
+  padding: '5px 5px 0 5px';
+}
+
+/* line 15, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-docked-bottom {
+  padding: 0px;
+}
+
+/* line 19, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-toolbar-footer {
+  padding: 6px 0 6px 6px;
+}
+
+/* line 23, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.paging_toolbar {
+  padding: 4px 0 4px 6px !important;
+}
+
+/* line 27, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-btn-group-body-default-framed .x-table-layout {
+  border-spacing: 0px;
+}
+
+/* line 31, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_toolbar.scss */
+.x-btn-group-default-framed-notitle {
+  border-width: 0px;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-default {
+  border-width: 1px;
+  border-color: #BFBFBF;
+}
+
+/* line 6, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-header-body {
+  padding: 5px;
+}
+
+/* line 10, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-body-default {
+  border: none !important;
+  border-bottom: solid 1px #EAEAEA !important;
+}
+
+/* line 15, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-panel-body-default {
+  border-color: #D0D0D0;
+  border-width: 1px;
+}
+
+/* line 20, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-header-default {
+  border: 1px solid #BDBDBD !important;
+  border-bottom: none !important;
+}
+
+/* line 25, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-header-default-top {
+  background-color: #D6D6D6;
+}
+
+/* line 29, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-header-default .x-tool-img {
+  background-color: transparent;
+  opacity: 1;
+}
+
+/* line 34, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-header-text {
+  font-family: 'Bitter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+}
+
+/* line 40, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-window-header-text-container-default {
+  color: #2C4681;
+}
+
+/* line 44, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-autocontainer-form-item, .x-anchor-form-item, .x-vbox-form-item, .x-checkboxgroup-form-item, .x-table-form-item {
+  margin-bottom: 10px;
+}
+
+/* line 48, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+.x-css-shadow {
+  box-shadow: none !important;
+}
+
+/* line 53, /Users/gett/projects/smarter/src/public/resources/sass/widgets/_window.scss */
+#notification_win {
+  padding: 10px;
+}
+
+/* line 1, /Users/gett/projects/smarter/src/public/resources/sass/ux/_toaster.scss */
+.ux-toast {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: #85D683;
+  border-radius: 5px;
+  border: 1px solid #256812;
+  color: #256812;
+  font-family: helvetica,arial,verdana,sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  height: 40px;
+  line-height: 35px;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  z-index: 99999;
+}

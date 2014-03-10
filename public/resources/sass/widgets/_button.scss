@@ -1,0 +1,89 @@
+.x-btn-default-small {
+	background-color:#EAEAEA !important;
+	border:1px solid #D0D0D0 !important;
+	background-image: none !important;
+	color: black !important;
+}
+
+.x-btn-default-medium {
+	background-color:#EAEAEA !important;
+	border:1px solid #D0D0D0 !important;
+	background-image: none !important;
+	color: black !important;
+}
+
+.x-btn-default-toolbar-small {
+	background-color:#EAEAEA !important;
+	border:1px solid #D0D0D0 !important;
+	background-image: none !important;
+	color: black !important;
+}
+
+.x-btn-default-small .x-btn-inner {
+	color: black !important;
+	font-weight: normal;
+}
+
+.x-btn-default-medium .x-btn-inner {
+	color: black !important;
+	font-weight: normal;
+}
+
+.btn_calculate {
+	background-color:#4266BF !important;
+	border:1px solid #304891 !important;
+}
+
+.btn_calculate .x-btn-inner{
+	color:white !important;
+	font-weight: bold;
+}
+
+.btn_save {
+	background-color:#60B15E !important;
+	border:1px solid #579A44 !important;
+	background-image: none !important;
+}
+
+.btn_save .x-btn-inner{
+	color:white !important;
+	font-weight: bold;
+}
+
+.x-btn-default-toolbar-small {
+	border: 1px solid #D0D0D0 !important;
+}
+
+.x-btn-default-toolbar-small .x-btn-inner {
+	font-size: 11px !important;
+	color: black !important;
+}
+
+.btn_fast {
+	background-color: transparent !important;
+	border: transparent !important;
+}
+
+.x-btn-default-toolbar-small .x-btn-inner {
+	font-weight: normal !important;
+}
+
+// Botões da Grid - Relatórios
+.x-menu-item-active {
+	background-color: #EAEAEA
+}
+
+.x-menu-item-disabled {
+	background-color: #EAEAEA;
+	cursor: default !important;
+}
+
+.x-menu-item-disabled a, .x-menu-item-disabled a span {
+	cursor: default !important;
+	text-decoration: none;
+}
+
+.obligatory {
+	color:red;
+	font-weight:bold;
+}

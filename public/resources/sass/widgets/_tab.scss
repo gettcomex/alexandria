@@ -1,0 +1,67 @@
+.x-tab-default .x-tab-inner {
+    color: #545454;
+    font-weight: normal;
+}
+
+.x-tab-default-active .x-tab-inner {
+    color: black;
+    font-weight: bold;
+}
+
+.x-tab-default {
+    border-color: #D0D0D0 !important;
+    background: #F1F1F1 !important;
+    border-radius: 3px 3px 0px 0px !important;
+}
+
+.x-tab-default-top {
+    background: #F1F1F1;
+    padding: 5px 12px 7px !important;
+    top: 2px !important;
+}
+
+.x-tab-default-top-active, .x-tab-default-left-active, .x-tab-default-right-active {
+    border-bottom-color: #D0D0D0;
+}
+
+.x-tab-default-active {
+    background: none !important;
+    background-color: #E2E2E2 !important;
+    border-bottom: none;
+    border-color: #D0D0D0 !important;
+    border-radius: 3px 3px 0px 0px !important;
+    padding: 7px 12px 7px !important;
+    top: 0px !important;
+}
+
+.x-tab-bar-strip-default {
+    background-color: #EEEEEE;
+    border-color: #EEEEEE;
+}
+
+.x-tab-bar-body-default-top {
+    padding-bottom: 0px;
+}
+
+.x-tab-bar-strip-default-top {
+	background-color: #D0D0D0 !important;
+    height: 1px;
+}
+
+.x-tab-bar-strip {
+    bottom: 5px !important;
+}
+
+.x-tab-bar-horizontal .x-tab-bar-strip {
+    position: relative;
+    z-index: 9
+}
+
+.x-horizontal-box-overflow-body {
+    //height: 34px !important;
+}
+
+.x-tab-default .x-tab-close-btn {
+    right: 5px !important;
+    top: 5px !important;
+}

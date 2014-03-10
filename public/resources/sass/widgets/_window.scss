@@ -1,0 +1,55 @@
+.x-window-default {
+    border-width: 1px;
+    border-color: #BFBFBF;
+}
+
+.x-header-body {
+	padding: 5px;
+}
+
+.x-window-body-default {
+	border: none !important;
+    border-bottom: solid 1px #EAEAEA !important;
+}
+
+.x-panel-body-default {
+    border-color: #D0D0D0;
+    border-width: 1px;
+}
+
+.x-window-header-default {
+    border: 1px solid #BDBDBD !important;
+    border-bottom: none !important;
+}
+
+.x-window-header-default-top {
+    background-color: #D6D6D6;
+}
+
+.x-window-header-default .x-tool-img {
+    background-color: transparent;
+    opacity: 1;
+}
+
+.x-window-header-text {
+	font-family: 'Bitter', sans-serif !important;
+	font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+.x-window-header-text-container-default {
+    color: #2C4681;
+}
+
+.x-autocontainer-form-item, .x-anchor-form-item, .x-vbox-form-item, .x-checkboxgroup-form-item, .x-table-form-item {
+    margin-bottom: 10px;
+}
+
+.x-css-shadow {
+	box-shadow: none !important;
+}
+
+// Notificações
+#notification_win {
+    padding: 10px
+}

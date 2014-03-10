@@ -1,0 +1,137 @@
+@mixin icon($name, $ext: 'png') {
+  .ico_#{$name}{
+    background-image: url('../images/icons/#{$name}.#{$ext}');
+  }
+}
+
+@include icon('activate');
+@include icon('active');
+@include icon('add');
+@include icon('arrow');
+@include icon('atrasado');
+@include icon('automatic_payment');
+@include icon('calculate');
+@include icon('chat');
+@include icon('calculate');
+@include icon('cancel');
+@include icon('charge_cancel');
+@include icon('cce_ok');
+@include icon('charge_grid');
+@include icon('charges');
+@include icon('clear');
+@include icon('clone');
+@include icon('complement');
+@include icon('complement_grid');
+@include icon('complements');
+@include icon('conciliado');
+@include icon('conciliate');
+@include icon('conciliation');
+@include icon('consult');
+@include icon('correction_letter');
+@include icon('closing_third');
+@include icon('credito');
+@include icon('cross');
+@include icon('csv');
+@include icon('danfe');
+@include icon('debito');
+@include icon('delete');
+@include icon('discard_downs');
+@include icon('discard_launch_number');
+@include icon('disconciliate');
+@include icon('display_only');
+@include icon('distribution_stock_grid');
+@include icon('disunite');
+@include icon('division');
+@include icon('document');
+@include icon('document_grid');
+@include icon('down');
+@include icon('down_mult');
+@include icon('down_mult_grouped');
+@include icon('download');
+@include icon('duplicar');
+@include icon('edit');
+@include icon('edit_option');
+@include icon('em_aberto');
+@include icon('excel');
+@include icon('export_txt');
+@include icon('export_xml');
+@include icon('extrato');
+@include icon('filter');
+@include icon('filter_clean');
+@include icon('finance_partial');
+@include icon('finance_total');
+@include icon('financial_pi');
+@include icon('generate_billet');
+@include icon('generate_duplicate');
+@include icon('generate_input_nfe');
+@include icon('generate_output_nfe');
+@include icon('help');
+@include icon('help_grid');
+@include icon('html');
+@include icon('intern_filter');
+@include icon('inventory');
+@include icon('inventary_generate');
+@include icon('inventory_view');
+@include icon('import');
+@include icon('inactivate');
+@include icon('inactive');
+@include icon('import_extract');
+@include icon('import_xml');
+@include icon('label');
+@include icon('launch_payable_receivable');
+@include icon('launch_grouped');
+@include icon('loaded');
+@include icon('mark_read');
+@include icon('master_nfe');
+@include icon('mesclar');
+@include icon('mother_daughters');
+@include icon('new_option');
+@include icon('nfe_younglet');
+@include icon('nfe_devolution');
+@include icon('nfs_related');
+@include icon('others');
+@include icon('paid_by_buyer');
+@include icon('paid_by_import');
+@include icon('paid_by_others');
+@include icon('pago');
+@include icon('pago_parcialmente');
+@include icon('permissoes');
+@include icon('previsto');
+@include icon('produto_igual_di');
+@include icon('sefaz');
+@include icon('send');
+@include icon('send_email');
+@include icon('search');
+@include icon('stock_move');
+@include icon('reajustar');
+@include icon('refresh');
+@include icon('refund');
+@include icon('remittance');
+@include icon('return');
+@include icon('reports');
+@include icon('tab_entry');
+@include icon('tab_system_info');
+@include icon('tab_report');
+@include icon('transferencia');
+@include icon('tick');
+@include icon('useless');
+@include icon('upload_file');
+@include icon('update_status');
+@include icon('view');
+@include icon('vence_hoje');
+@include icon('verify_declaration');
+@include icon('view_option');
+@include icon('view_moviment');
+@include icon('xls');
+@include icon('xml');
+
+.ico_page_next{ background-image: url('../images/grid/page-next.gif'); }
+.ico_page_next_disabled{ background-image: url('../images/grid/page-next-disabled.gif'); }
+.ico_page_prev{ background-image: url('../images/grid/page-prev.gif'); }
+.ico_page_prev_disabled{ background-image: url('../images/grid/page-prev-disabled.gif'); }
+
+.ico_month {
+	background-image: url(../../extjs/resources/neptune/images/form/date-trigger.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
