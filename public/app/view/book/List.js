@@ -23,36 +23,45 @@ Ext.define('AW.view.book.List', {
 			},{
 				text	: 'Editar',
 				action	: 'edit',
-				itemId	: 'btn_edit',
-				disabled: true
+				itemId	: 'btn_edit'
 			},{
 				text	: 'Excluir',
 				action	: 'view',
-				itemId	: 'btn_delete',
-				disabled: true
+				itemId	: 'btn_delete'
+			}]
+		},{
+			xtype	: 'toolbar',
+			dock	: 'bottom',
+			style	: 'z-index: 0;',
+			items	: [{
+				xtype		: 'pagingtoolbar',
+				store		: me.store,
+				cls			: 'paging_toolbar',
+				displayMsg	: '{0} - {1} de {2} registro(s)',
+				emptyMsg	: "",
+				displayInfo	: true,
+				border		: false
 			}]
 		}];
 
 		me.columns = [{
-			header		: 'Título',
-			dataIndex	: 'title',
 			sortable	: false,
 			hideable	: false,
+			draggable	: false,
+			width		: 60
+		},{
+			header		: 'Título',
+			dataIndex	: 'title',
+			hideable	: false,
+			width		: 150
 		},{
 			header		: 'Autor',
 			dataIndex	: 'writer',
-			sortable	: false,
 			hideable	: false,
-			width		: 50
-		},{
-			header		: 'Cópias',
-			dataIndex	: 'copies',
-			width		: 25
-		},{
-			header		: 'Páginas',
-			dataIndex	: 'pages',
-			width		: 25
+			width		: 150
 		}];
+
+		me.height = 700;
 
 		me.callParent(arguments);
 		me.store.load();
