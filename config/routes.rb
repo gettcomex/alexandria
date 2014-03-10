@@ -10,8 +10,6 @@ Alexandria::Application.routes.draw do
 
   resources :users
 
-  root to: 'start_page#index'
-  	  get "start_page/index"
-   	  match '/home'   => "start_page#index",  :as => :home
+  root :to => "home#index"
    
 end
