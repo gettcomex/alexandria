@@ -10,6 +10,7 @@ Ext.define('AW.view.book.Window', {
 	border 		: true, 
 	modal		: true, 
 	heigth		: 340, 
+	minHeigth	: 340,
 	width		: 660,
 	minWidth 	: 660,
 
