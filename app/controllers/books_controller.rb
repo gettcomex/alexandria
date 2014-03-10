@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   # GET /books.json
   load_and_authorize_resource
 
+
   def index
     @books = Book.page(params[:page]).per(5)
     
@@ -27,6 +28,7 @@ class BooksController < ApplicationController
   # GET /books/new
   # GET /books/new.json
   def new
+  	
     @book = Book.new
 
     respond_to do |format|
@@ -44,17 +46,14 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+
     @book = Book.new(params[:book])
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render json: @book, status: :created, location: @book }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+	  if @book.save
+	    render json: @book.id, status: :ok
+	  else
+	    render json: @book.errors, status: :unprocessable_entity
       end
-    end
   end
 
   # PUT /books/1

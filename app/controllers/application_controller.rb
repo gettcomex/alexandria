@@ -1,8 +1,9 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
-  protect_from_forgery
 
   before_filter :open_most_important, :authenticate_user!
+  protect_from_forgery
+  skip_before_filter :verify_authenticity_token
 
   rescue_from CanCan::AccessDenied do |exception|
   	flash[:error] = "Access denied."

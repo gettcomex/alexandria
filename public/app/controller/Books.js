@@ -41,10 +41,10 @@ Ext.define('AW.controller.Books', {
 	},
 
 	onClickButtonSave: function(btn) {
-		var me = this,
+		var me 		= this,
 			wait	= Ext.Msg.wait('Salvando registro...'),
-			win = btn.up('window'),
-			values = win.down('form').getForm().getValues();
+			win 	= btn.up('window'),
+			values 	= win.down('form').getForm().getValues();
 		
 		Ext.Ajax.request({
 			url		: '/books/',
@@ -71,10 +71,10 @@ Ext.define('AW.controller.Books', {
 	getParamsWin: function(values) {
 		var params	= {};
 
-		params['book[title]']				= values.title;
-		params['book[writer]']				= values.writer;
-		params['book[copies]']				= values.copies;
-		params['book[pages]']				= values.pages;
+		params['book[title]']	= values.title;
+		params['book[writer]']	= values.writer;
+		params['book[copies]']	= values.copies;
+		params['book[pages]']	= values.pages;
 
 		return params; 
 	}

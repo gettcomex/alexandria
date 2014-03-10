@@ -32,8 +32,8 @@ Ext.define('AW.view.book.Window', {
 			items	: [{
 				xtype		: 'textfield',
 				fieldLabel 	: 'Título', 
-				name		: 'name', 
-				itemId		: 'textfield_name',
+				name		: 'title', 
+				itemId		: 'textfield_title',
 				allowBlank	: false, 
 				maxLength	: 130
 			},{
