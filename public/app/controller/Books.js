@@ -2,7 +2,8 @@
 Ext.define('AW.controller.Books', {
 	extend	: 'Ext.app.Controller',
 	views	: [ 
-		'book.List'
+		'book.List',
+		'book.Window'
 	],
 	stores	: [
 		'GridBooks'
@@ -12,9 +13,19 @@ Ext.define('AW.controller.Books', {
 	init: function() {
 		var me = this;
 
-		me.control({});
+		me.control({
+			'booklist button[action=add]':{
+				click: me.onClickNewBook
+			}
+
+		});
 
 		me.callParent(arguments);
+	}, 
+
+//listeners list
+	onClickNewBook: function() {
+		Ext.widget('bookwindow');
 	}
 
 });
