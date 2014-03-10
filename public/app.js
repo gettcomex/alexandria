@@ -41,5 +41,7 @@ Ext.application({
 	autoCreateViewport	: true,
 	paths				: {},
 	requires			: [],
-	controllers			: []
+	controllers			: [
+		'Books'
+	]
 });

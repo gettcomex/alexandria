@@ -6,7 +6,10 @@ Ext.define('AW.view.Viewport', {
 		items	: [{
 			title	: 'Usuários'
 		},{
-			title	: 'Livros'
+			title	: 'Livros',
+			items	: [{
+				xtype	: 'booklist'
+			}]
 		},{
 			title	: 'Empréstimos'
 		}] 
