@@ -8,7 +8,7 @@ Ext.define('AW.view.Viewport', {
 		},{
 			title	: 'Livros'
 		},{
-			title	: 'Empréstimos'	
+			title	: 'Empréstimos'
 		}] 
 	}]
 });
