@@ -15,12 +15,21 @@ Ext.define('AW.controller.Books', {
 
 		me.control({
 			'booklist button[action=add]':{
-				click: me.onClickNewBook
-			}, 
+				click: me.onClickButtonNew
+			},
+
+			'booklist button[action=edit]':{
+				click: me.onClickButtonEdit 
+			},
+
+			'bookwindow':{
+				show: me.onShowWin
+			},
 
 			'bookwindow button[action=close]':{
 				click: me.onClickButtonClose
-			}, 
+			},
+
 			'bookwindow button[action=save]':{
 				click: me.onClickButtonSave
 			}
@@ -30,8 +39,18 @@ Ext.define('AW.controller.Books', {
 	}, 
 
 //listeners list
-	onClickNewBook: function() {
+	onClickButtonNew: function() {
 		Ext.widget('bookwindow');
+	},
+
+	onClickButtonEdit: function(btn) {
+		var params = {};
+
+		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId()
+
+		// FIXME
+		var win = Ext.widget('bookwindow', params);
+
 	}, 
 
 	onClickButtonClose: function(btn) {
@@ -68,6 +87,24 @@ Ext.define('AW.controller.Books', {
 		});
 	},
 
+	onShowWin: function(win) {
+		if (win.recordID) {
+
+			win.child('form').getForm().load({
+				url			: 'books/' + win.recordID+'.json',
+				method		: 'GET',
+				waitTitle	: 'Carregando registro...',
+				waitMsg		: ' ',
+				scope		: this,
+				success		: function(form, action) {
+					win.data = action.result;
+				},
+				failure	: function() {}
+			});
+		}
+	},
+
+//others methods
 	getParamsWin: function(values) {
 		var params	= {};
 
