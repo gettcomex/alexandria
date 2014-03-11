@@ -60,14 +60,16 @@ Ext.define('AW.controller.Books', {
 	},
 
 	onClickButtonSave: function(btn) {
-		var me 		= this,
-			wait	= Ext.Msg.wait('Salvando registro...'),
-			win 	= btn.up('window'),
-			values 	= win.down('form').getForm().getValues();
+
+		var me 			= this,
+			wait		= Ext.Msg.wait('Salvando registro...'),
+			win 		= btn.up('window'),
+			recordID 	= win.recordID,
+			values 		= win.down('form').getForm().getValues();
 		
 		Ext.Ajax.request({
-			url		: '/books/',
-			method	: 'POST',
+			url		: '/books/' + (recordID ? recordID : ''),
+			method	: recordID ? 'PUT' : 'POST',
 			scope	: me,  
 			params	: me.getParamsWin(values),
 			callback: function(params, sucess, response) {
@@ -85,13 +87,27 @@ Ext.define('AW.controller.Books', {
 				win.destroy();
 			}
 		});
+
+		var loadList = function() {
+			var list = 'booklist';
+			if (Ext.isString(list)) {
+				Ext.each(Ext.ComponentQuery.query(list), function(list) {
+					list.store.loadPage(list.store.currentPage);
+					list.getSelectionModel().deselectAll();
+				});
+			} else {
+				list.store.loadPage(list.store.currentPage);
+				list.getSelectionModel().deselectAll();	
+			}
+		};
+		loadList();
 	},
 
 	onShowWin: function(win) {
 		if (win.recordID) {
 
 			win.child('form').getForm().load({
-				url			: 'books/' + win.recordID+'.json',
+				url			: 'books/' + win.recordID,
 				method		: 'GET',
 				waitTitle	: 'Carregando registro...',
 				waitMsg		: ' ',

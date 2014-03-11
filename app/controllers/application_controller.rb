@@ -21,5 +21,4 @@ class ApplicationController < ActionController::Base
         #:my_user => { :name => 'Meu Usuário', :link_to => "users#show", @user }}
       @current_menu_item = :home
     end
-
 end

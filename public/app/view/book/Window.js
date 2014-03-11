@@ -24,7 +24,10 @@ Ext.define('AW.view.book.Window', {
 			xtype	: 'form', 
 			layout	: 'anchor', 
 			border	: false, 
-			padding : 10, 
+			padding : 10,
+			plugins	: {
+				ptype : 'rails'
+			},
 			defaults: {
 				labelWidth	: 120, // AO ALTERAR O LABEL AQUI, ALTERAR TBM NA COLUNA
 				anchor		: '0' 

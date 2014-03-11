@@ -10,7 +10,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'cancan'
 gem 'debugger'
-
+gem 'jbuilder'
 
 # Gems used only for assets and not required
 # in production environments by default.

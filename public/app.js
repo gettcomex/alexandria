@@ -1,5 +1,6 @@
 /*globals Ext, conf*/
 Ext.Loader.setPath('Ext',	'extjs/src');
+Ext.Loader.setPath('Ext.ux', 'app/ux');
 Ext.Loader.setConfig({
 	enabled			: true,
 	disableCaching	: true
@@ -33,7 +34,8 @@ Ext.require([
 	'Ext.tab.Panel',
 	'Ext.toolbar.Paging',
 	'Ext.tree.Panel',
-	'Ext.selection.CheckboxModel'
+	'Ext.selection.CheckboxModel', 
+	'Ext.ux.form.Rails'
 ]);
 
 Ext.application({
