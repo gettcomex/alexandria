@@ -8,7 +8,8 @@ Ext.define('AW.view.book.List', {
 
 //init
 	initComponent: function() {
-		var me = this;
+		var me = this, 
+			sm = Ext.create('Ext.selection.CheckboxModel');
 
 		me.dockedItems = [{
 			xtype	: 'toolbar',
@@ -44,12 +45,9 @@ Ext.define('AW.view.book.List', {
 			}]
 		}];
 
+		me.selModel = sm; 
+
 		me.columns = [{
-			sortable	: false,
-			hideable	: false,
-			draggable	: false,
-			width		: 60
-		},{
 			header		: 'Título',
 			dataIndex	: 'title',
 			hideable	: false,
