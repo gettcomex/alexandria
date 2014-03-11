@@ -22,6 +22,10 @@ Ext.define('AW.controller.Books', {
 				click: me.onClickButtonEdit 
 			},
 
+			'booklist button[action=delete]': {
+				click: me.onClickButtonDelete
+			},
+
 			'bookwindow':{
 				show: me.onShowWin
 			},
@@ -60,7 +64,6 @@ Ext.define('AW.controller.Books', {
 	},
 
 	onClickButtonSave: function(btn) {
-
 		var me 			= this,
 			wait		= Ext.Msg.wait('Salvando registro...'),
 			win 		= btn.up('window'),
@@ -88,19 +91,32 @@ Ext.define('AW.controller.Books', {
 			}
 		});
 
-		var loadList = function() {
-			var list = 'booklist';
-			if (Ext.isString(list)) {
-				Ext.each(Ext.ComponentQuery.query(list), function(list) {
-					list.store.loadPage(list.store.currentPage);
-					list.getSelectionModel().deselectAll();
-				});
-			} else {
-				list.store.loadPage(list.store.currentPage);
-				list.getSelectionModel().deselectAll();	
+		me.loadList('booklist');
+	},
+
+	onClickButtonDelete: function(btn) {
+		var me			= this,
+			list		= btn.up('gridpanel'),
+			selectedRow	= list.getSelectionModel().getLastSelected().getId();
+
+		msg = 'Deseja realmente excluir esse item?';
+
+		Ext.Msg.confirm('Atenção', msg, function(opt) {
+			if (opt === 'no') {
+				return;
 			}
-		};
-		loadList();
+
+			Ext.Ajax.request({
+				url		: '/books/' + selectedRow,
+				method	: 'DELETE',
+				success	: function(response) {
+					me.loadList('booklist');
+				},
+				failure	: function(response) {
+					var data	= Ext.decode(response.responseText).data;
+				}		
+			})
+		});
 	},
 
 	onShowWin: function(win) {
@@ -130,5 +146,17 @@ Ext.define('AW.controller.Books', {
 		params['book[pages]']	= values.pages;
 
 		return params; 
+	},
+	loadList: function(name) {
+		var list = name;
+		if (Ext.isString(list)) {
+			Ext.each(Ext.ComponentQuery.query(list), function(list) {
+				list.store.loadPage(list.store.currentPage);
+				list.getSelectionModel().deselectAll();
+			});
+		} else {
+			list.store.loadPage(list.store.currentPage);
+			list.getSelectionModel().deselectAll();	
+		}
 	}
 });

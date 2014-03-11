@@ -26,7 +26,7 @@ Ext.define('AW.view.book.List', {
 				itemId	: 'btn_edit'
 			},{
 				text	: 'Excluir',
-				action	: 'view',
+				action	: 'delete',
 				itemId	: 'btn_delete'
 			}]
 		},{
