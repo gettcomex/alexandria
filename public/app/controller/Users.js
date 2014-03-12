@@ -1,12 +1,12 @@
- /*globals Ext, t, setTimeout, conf*/
-Ext.define('AW.controller.Books', {
+/*globals Ext, t, setTimeout, conf*/
+Ext.define('AW.controller.Users', {
 	extend	: 'Ext.app.Controller',
 	views	: [ 
-		'book.List',
-		'book.Window'
+		'user.List',
+		'user.Window'
 	],
 	stores	: [
-		'GridBooks'
+		'GridUsers'
 	],
 
 //inits 
@@ -14,27 +14,27 @@ Ext.define('AW.controller.Books', {
 		var me = this;
 
 		me.control({
-			'booklist button[action=add]':{
+			'userlist button[action=add]':{
 				click: me.onClickButtonNew
 			},
 
-			'booklist button[action=edit]':{
+			'userlist button[action=edit]':{
 				click: me.onClickButtonEdit 
 			},
 
-			'booklist button[action=delete]': {
+			'userlist button[action=delete]': {
 				click: me.onClickButtonDelete
 			},
 
-			'bookwindow':{
+			'userwindow':{
 				show: me.onShowWin
 			},
 
-			'bookwindow button[action=close]':{
+			'userwindow button[action=close]':{
 				click: me.onClickButtonClose
 			},
 
-			'bookwindow button[action=save]':{
+			'userwindow button[action=save]':{
 				click: me.onClickButtonSave
 			}
 		});
@@ -44,7 +44,7 @@ Ext.define('AW.controller.Books', {
 
 //listeners list
 	onClickButtonNew: function() {
-		Ext.widget('bookwindow');
+		Ext.widget('userwindow');
 	},
 
 	onClickButtonEdit: function(btn) {
@@ -52,8 +52,7 @@ Ext.define('AW.controller.Books', {
 
 		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId();
 
-		// O parametro recordId permite ao metodo enxergar que é uma edição de registro.
-		var win = Ext.widget('bookwindow', params);
+		var win = Ext.widget('userwindow', params);
 
 	}, 
 
@@ -68,10 +67,10 @@ Ext.define('AW.controller.Books', {
 			wait		= Ext.Msg.wait('Salvando registro...'),
 			win 		= btn.up('window'),
 			recordID 	= win.recordID,
-			values 		= win.down('form').getForm().getValues();
+			values 		= win.down('form').getForm().getValues(); 
 		
 		Ext.Ajax.request({
-			url		: '/books/' + (recordID ? recordID : ''),
+			url		: '/users/' + (recordID ? recordID : ''),
 			method	: recordID ? 'PUT' : 'POST',
 			scope	: me,  
 			params	: me.getParamsWin(values),
@@ -79,19 +78,19 @@ Ext.define('AW.controller.Books', {
 				var result	= response.responseText,
 					status	= response.status,
 					errors	= result;
-					
-				wait.hide();
 
+				wait.hide();
+				
 				try {
 					result = Ext.decode(result);
 				} catch (e) {}
 
 				win.fireEvent('save', result, values);
 				win.destroy();
+				me.loadList('userlist');
 			}
 		});
 
-		me.loadList('booklist');
 	},
 
 	onClickButtonDelete: function(btn) {
@@ -112,10 +111,10 @@ Ext.define('AW.controller.Books', {
 			});
 
 			Ext.Ajax.request({
-				url		: '/books/' + ids.join(','),
+				url		: '/users/' + ids.join(','),
 				method	: 'DELETE',
 				success	: function(response) {
-					me.loadList('booklist');
+					me.loadList('userlist');
 				},
 				failure	: function(response) {
 					var data	= Ext.decode(response.responseText).data;
@@ -128,7 +127,7 @@ Ext.define('AW.controller.Books', {
 		if (win.recordID) {
 
 			win.child('form').getForm().load({
-				url			: 'books/' + win.recordID,
+				url			: 'users/' + win.recordID,
 				method		: 'GET',
 				waitTitle	: 'Carregando registro...',
 				waitMsg		: ' ',
@@ -144,11 +143,13 @@ Ext.define('AW.controller.Books', {
 //others methods
 	getParamsWin: function(values) {
 		var params	= {};
-
-		params['book[title]']	= values.title;
-		params['book[writer]']	= values.writer;
-		params['book[copies]']	= values.copies;
-		params['book[pages]']	= values.pages;
+		
+		params['user[name]']					= values.name;
+		params['user[login]']					= values.login;
+		params['user[email]']					= values.email;
+		params['user[password]']				= values.new_password ? values.new_password : values.password;
+		params['user[password_confirmation]']	= values.password_confirmation;
+		params['user[is_employee]']				= values.is_employee;
 
 		return params; 
 	},

@@ -4,7 +4,10 @@ Ext.define('AW.view.Viewport', {
 	items	: [{
 		xtype	: 'tabpanel',
 		items	: [{
-			title	: 'Usuários'
+			title	: 'Usuários',
+			items	: [{
+				xtype	: 'userlist'
+			}]
 		},{
 			title	: 'Livros',
 			items	: [{

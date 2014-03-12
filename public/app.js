@@ -44,6 +44,7 @@ Ext.application({
 	paths				: {},
 	requires			: [],
 	controllers			: [
-		'Books'
+		'Books',
+		'Users'
 	]
 });

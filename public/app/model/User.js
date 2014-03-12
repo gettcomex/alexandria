@@ -1,5 +1,5 @@
 Ext.define('AW.model.User', {
-	extend	: 'Ext.date.Model', 
+	extend	: 'Ext.data.Model', 
 	fields	: [
 		{name: 'email',					type: 'string'}, 
 		{name: 'password', 				type: 'string'}, 

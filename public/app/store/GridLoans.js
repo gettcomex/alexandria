@@ -21,8 +21,8 @@ Ext.define('AW.store.GridLoans', {
 		beforeload: function(store) { 
 			if (store.sorters.items[0]) {
 				store.proxy.extraParams.page	= store.currentPage;
-				store.proxy.extraParams.start	= (store.currentPage > 0 ? ((store.currentPage-1)*3) : 0);
-				store.proxy.extraParams.limit	= 3;
+				store.proxy.extraParams.start	= (store.currentPage > 0 ? ((store.currentPage-1)*10) : 0);
+				store.proxy.extraParams.limit	= 10;
 			}
 		}
 	} 
