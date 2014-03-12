@@ -5,6 +5,7 @@ Ext.define('AW.model.Book', {
 		{name: 'title',		type: 'string'},
 		{name: 'writer',	type: 'string'},
 		{name: 'copies',	type: 'int'}, 
-		{name: 'pages', 	type: 'int'}
+		{name: 'pages', 	type: 'int'}, 
+		{name: 'title_writer', type: 'string'}
 	]
 });

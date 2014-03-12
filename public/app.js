@@ -10,6 +10,7 @@ Ext.require([
 	'Ext.data.JsonStore',
 	'Ext.data.TreeStore',
 	'Ext.form.Panel',
+	'Ext.form.Label',
 	'Ext.form.FieldSet',
 	'Ext.form.field.File',
 	'Ext.form.field.Display',
@@ -36,6 +37,7 @@ Ext.require([
 	'Ext.tree.Panel',
 	'Ext.selection.CheckboxModel', 
 	'Ext.ux.form.Rails'
+
 ]);
 
 Ext.application({
@@ -45,6 +47,7 @@ Ext.application({
 	requires			: [],
 	controllers			: [
 		'Books',
-		'Users'
+		'Users',
+		'Loans'
 	]
 });

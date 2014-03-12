@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
-		@books = Book.select('id, title, writer, pages, copies, created_at, updated_at')
+		@books = Book.select("id, title, writer, pages, copies, created_at, updated_at, title || ' - ' || writer as title_writer")
 		
 		respond_to do |format|
 			format.html { render layout: 'system' } # index.html.erb
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		@book = Book.select('title, writer, pages, copies').find params[:id]
+		@book = Book.select("title, writer, pages, copies,  title || ' - ' || writer as title_writer").find params[:id]
 		respond_with @book
 	end
 

@@ -14,7 +14,10 @@ Ext.define('AW.view.Viewport', {
 				xtype	: 'booklist'
 			}]
 		},{
-			title	: 'Empréstimos'
+			title	: 'Empréstimos', 
+			items	: [{
+				xtype	: 'loanlist'
+			}]
 		}] 
 	}]
 });
