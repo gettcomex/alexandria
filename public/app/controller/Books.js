@@ -50,7 +50,7 @@ Ext.define('AW.controller.Books', {
 	onClickButtonEdit: function(btn) {
 		var params = {};
 
-		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId()
+		params.recordID = btn.up('grid').getSelectionModel().getSelected().getId();
 
 		// FIXME
 		var win = Ext.widget('bookwindow', params);
@@ -97,17 +97,22 @@ Ext.define('AW.controller.Books', {
 	onClickButtonDelete: function(btn) {
 		var me			= this,
 			list		= btn.up('gridpanel'),
-			selectedRow	= list.getSelectionModel().getLastSelected().getId();
-
-		msg = 'Deseja realmente excluir esse item?';
+			selected	= list.getSelectionModel().getSelection(),
+			len 		= selected.length,
+			ids			= [];
+		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
 
 		Ext.Msg.confirm('Atenção', msg, function(opt) {
 			if (opt === 'no') {
 				return;
 			}
 
+			Ext.each(selected, function(r) {
+				ids.push(r.getId());
+			});
+
 			Ext.Ajax.request({
-				url		: '/books/' + selectedRow,
+				url		: '/books/' + ids.join(','),
 				method	: 'DELETE',
 				success	: function(response) {
 					me.loadList('booklist');
