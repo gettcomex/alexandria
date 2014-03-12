@@ -50,7 +50,7 @@ Ext.define('AW.controller.Books', {
 	onClickButtonEdit: function(btn) {
 		var params = {};
 
-		params.recordID = btn.up('grid').getSelectionModel().getSelected().getId();
+		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId();
 
 		// FIXME
 		var win = Ext.widget('bookwindow', params);
