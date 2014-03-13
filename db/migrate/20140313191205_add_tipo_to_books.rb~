@@ -1,4 +1,0 @@
-class AddTipoToBooks < ActiveRecord::Migration
-  def change
-  end
-end
