@@ -81,9 +81,9 @@ Ext.define('AW.view.book.Window', {
 			},{
 				xtype 		: 'combo', 
 				fieldLabel 	: 'Tipo', 
-				name		: 'type', 
+				name		: 'type_book', 
 				itemId		: 'combo_type_id',
-				store		: '', 
+				store		: 'ComboBookTypes', 
 				valueField	: 'id', 
 				displayField: 'name',
 				allowBlank	: false, 

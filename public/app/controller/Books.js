@@ -6,7 +6,8 @@ Ext.define('AW.controller.Books', {
 		'book.Window'
 	],
 	stores	: [
-		'GridBooks'
+		'GridBooks', 
+		'ComboBookTypes'
 	],
 
 //inits 
@@ -145,10 +146,11 @@ Ext.define('AW.controller.Books', {
 	getParamsWin: function(values) {
 		var params	= {};
 
-		params['book[title]']	= values.title;
-		params['book[writer]']	= values.writer;
-		params['book[copies]']	= values.copies;
-		params['book[pages]']	= values.pages;
+		params['book[title]']		= values.title;
+		params['book[writer]']		= values.writer;
+		params['book[copies]']		= values.copies;
+		params['book[pages]']		= values.pages;
+		params['book[book_type]']	= values.type_book;
 
 		return params; 
 	},

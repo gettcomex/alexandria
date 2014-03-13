@@ -1,0 +1,10 @@
+{
+	"data":[
+		{"id": 1, "name": "Normal"},
+		{"id": 2, "name": "Encadernado"},
+		{"id": 3, "name": "Digital"},
+		{"id": 4, "name": "Manuscrito"},
+		{"id": 5, "name": "Brochura"},
+		{"id": 6, "name": "Não informado"}
+	]
+}

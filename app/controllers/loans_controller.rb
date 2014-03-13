@@ -1,7 +1,8 @@
 class LoansController < ApplicationController
 
 	respond_to :json
-	before_filter :load_resources, only: %w(create update)
+	load_and_authorize_resource
+	#before_filter :load_resources, only: %w(create update)
 
 	def index
 		@loans = Loan.select("id, book_id, user_id, starts_at, end_at")
@@ -22,39 +23,36 @@ class LoansController < ApplicationController
 		respond_with @loan 
 	end
 
-	def create
-
-		if params[:loan_submit] == 'Salvar'
-			@loan = Loan.new(params[:loan])
-			
-			#FIXME Verificar o funcionamento.
-			if @loan.save
-				render json: @loan.id, status: :ok
-			else
-				render json: @loan.errors, status: :unprocessable_entity
-			end
-
+	def create 
+		@loan = Loan.new(params[:loan])
+	
+		if @loan.save
+			render json: @loan.id, status: :ok
 			send_mail(@loan)
-			
 		else
-			# Reserva de livros, não encontramos outra maneira 
-			@queuelist = QueueList.new(params[:loan])
-			
-			#FIXME Verificar o funcionamento, se não criar um auto form...
-			if @queuelist.save
-				render json: @queuelist.id, status: :ok
-			else
-				render json: @queuelist.errors, status: :unprocessable_entity
-			end
+			render json: @loan.errors, status: :unprocessable_entity
 		end
-
+		
+		#FIXME Verificar o funcionamento.
+		# else
+		# 	# Reserva de livros, não encontramos outra maneira 
+		# 	@queuelist = QueueList.new(params[:loan])
+			
+		# 	#FIXME Verificar o funcionamento, se não criar um auto form...
+		# 	if @queuelist.save
+		# 		render json: @queuelist.id, status: :ok
+		# 	else
+		# 		render json: @queuelist.errors, status: :unprocessable_entity
+		# 	end
+		
 	end
 
 	def send_mail(loan)
-		user = User.find(params[:loan][:user_id])
-		loan = Loan.find(loan.loan_id)
+		user = User.find(loan.user_id)
+		loan = Loan.find(loan.id)
+		book = Book.find(loan.book_id)
 
-		UserMailer.loan_confirmation(user, loan, loan).deliver
+		UserMailer.loan_confirmation(user, book, loan).deliver
 	end
 
 	def update

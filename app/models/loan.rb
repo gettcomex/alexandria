@@ -17,7 +17,7 @@ class Loan < ActiveRecord::Base
   def set_default_date
   	self.starts_at = set_date(Time.now)
   	  	
-  	self.end_at = set_date(Time.now + 9.day) 
+  	self.end_at = set_date(Time.now + 7.day) 
   end 
 
   def set_date(date)
@@ -34,6 +34,7 @@ class Loan < ActiveRecord::Base
 
   def can_user_renew_loan?
 
+  	# TODO : MUDAR ISSO 
   	renew_loan_book = Book.find(self.book_id)
 
   	if not reserved_book?(renew_loan_book, self.user_id)
@@ -44,6 +45,8 @@ class Loan < ActiveRecord::Base
   end
 
   def can_loan? 
+ 
+ 	# TODO : E MUDAR MAIS ISSO 
   	book = Book.find(self.book_id)
   	
 

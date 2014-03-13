@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	respond_to :json
-	skip_before_filter :verify_authenticity_token, :authenticate_user!
+	skip_before_filter :authenticate_user!, :verify_authenticity_token
 	load_and_authorize_resource
 	
 	def index

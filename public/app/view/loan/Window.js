@@ -12,7 +12,6 @@ Ext.define('AW.view.loan.Window', {
 	heigth		: 340, 
 	minHeigth	: 340,
 	width		: 660,
-	minWidth 	: 660,
 
 //inits
 	initComponent: function(){
@@ -29,7 +28,7 @@ Ext.define('AW.view.loan.Window', {
 				ptype : 'rails'
 			},
 			defaults: {
-				labelWidth	: 150, 
+				labelWidth	: 80, 
 				anchor		: '0' 
 			}, 
 			items	: [{
@@ -53,33 +52,36 @@ Ext.define('AW.view.loan.Window', {
 				allowBlank	: false,
 				editable	: false
 			},{
-				xtype 		: 'container',
+				xtype 		: 'fieldcontainer',
+				fieldLabel	: 'Período',
 				layout		: 'column',
+       			labelWidth	: 80,
 				items 		: [{
-					xtype		: 'label',
-        			text		: 'Período',
-        			margin		: '0 10 0 0',
-        			columnWidth : 0.3
-				},{
 					xtype		: 'datefield', 
 					format		: "d/m/Y",
-					fieldLabel	: 'De', 
+					fieldLabel	: 'De',
 					name 		: 'starts_at',
 					itemId		: 'date_starts_at',
+					value 		: new Date(),
 					maxValue	: new Date(),
+					minValue	: new Date(),
+					disabled 	: false,
 					allowBlank	: false,
 					editable	: false,
-					columnWidth	: 0.3
+					labelWidth	: 50,
+					width		: 160,
 				},{
 					xtype		: 'datefield', 
 					format		: "d/m/Y",
+					margin		: '0 0 0 10',
 					fieldLabel	: 'Até', 
 					name 		: 'end_at',
 					itemId		: 'date_end_at',
-					maxValue	: new Date(),
+					disabled 	: false, 
 					allowBlank	: false,
 					editable	: false,
-					columnWidth	: 0.3
+					labelWidth	: 50,
+					width		: 160
 				}]
 			}]
 		}];

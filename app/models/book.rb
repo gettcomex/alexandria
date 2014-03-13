@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
   has_many :queue_lists
   has_many :loans
 
-  attr_accessible :copies, :created_by, :pages, :title, :update_by, :writer
+  attr_accessible :copies, :created_by, :pages, :title, :update_by, :writer, :book_type
 
   scope :by_availability, lambda { |book_id, today | 
    	joins(:loans).where(

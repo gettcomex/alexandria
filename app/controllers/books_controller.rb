@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		@book = Book.select("title, writer, pages, copies,  title || ' - ' || writer as title_writer").find params[:id]
+		@book = Book.select("title, writer, pages, copies, book_type, title || ' - ' || writer as title_writer").find params[:id]
 		respond_with @book
 	end
 

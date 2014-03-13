@@ -149,8 +149,8 @@ Ext.define('AW.controller.Loans', {
 
 		params['loan[book_id]']	= values.book_id;
 		params['loan[user_id]']	= values.user_id;
-		params['loan[starts_at]']	= values.starts_at;
-		params['loan[end_at]']	= values.end_at;
+		// params['loan[starts_at]']	= values.starts_at;
+		// params['loan[end_at]']	= values.end_at;
 
 		return params; 
 	},
