@@ -58,7 +58,7 @@ Ext.define('AW.view.user.Window', {
 			},{
 				xtype 		: 'textfield', 
 				fieldLabel 	: 'Senha', 
-				name		: 'password', 
+				name		: 'new_password', 
 				itemId		: 'textfield_new_password',
 				inputType	: 'password',    
 				allowBlank	: false,

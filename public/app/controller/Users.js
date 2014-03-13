@@ -67,8 +67,13 @@ Ext.define('AW.controller.Users', {
 			wait		= Ext.Msg.wait('Salvando registro...'),
 			win 		= btn.up('window'),
 			recordID 	= win.recordID,
+			form		= win.down('form'),
 			values 		= win.down('form').getForm().getValues(); 
-		
+
+		if (!recordID && !form.isValid()) {
+			wait.hide();
+			return;
+		}
 		Ext.Ajax.request({
 			url		: '/users/' + (recordID ? recordID : ''),
 			method	: recordID ? 'PUT' : 'POST',
@@ -144,13 +149,16 @@ Ext.define('AW.controller.Users', {
 	getParamsWin: function(values) {
 		var params	= {};
 		
-		params['user[name]']					= values.name;
-		params['user[login]']					= values.login;
-		params['user[email]']					= values.email;
-		params['user[password]']				= values.new_password ? values.new_password : values.password;
-		params['user[password_confirmation]']	= values.password_confirmation;
-		params['user[is_employee]']				= values.is_employee;
-
+		params['user[name]']		= values.name;
+		params['user[login]']		= values.login;
+		params['user[email]']		= values.email;
+		
+		if (values.new_password) { 
+			params['user[password]']				= values.new_password; 
+			params['user[password_confirmation]']	= values.password_confirmation;
+		};
+		
+		params['user[is_employee]']	= values.is_employee;
 		return params; 
 	},
 	loadList: function(name) {
