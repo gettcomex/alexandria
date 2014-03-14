@@ -31,8 +31,10 @@ class LoansController < ApplicationController
 			send_mail(@loan)
 		else
 			render json: @loan.errors, status: :unprocessable_entity
+			return false
 		end
 		
+
 		#FIXME Verificar o funcionamento.
 		# else
 		# 	# Reserva de livros, não encontramos outra maneira 
