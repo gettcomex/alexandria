@@ -3,6 +3,17 @@ Ext.define('AW.view.Viewport', {
 	layout	: 'anchor',
 	items	: [{
 		xtype	: 'tabpanel',
+		region	: 'center',
+		tabBar: {
+	        items: [{
+	            xtype: 'tbfill'
+	        }, {
+	            xtype	: 'button',
+	            text	: 'Logout',
+	            itemID  : 'btnLogout',
+	            action 	: 'sign_out'
+	    	}]
+	    }, 
 		items	: [{
 			title	: 'Usuários',
 			items	: [{
