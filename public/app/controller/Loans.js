@@ -104,7 +104,36 @@ Ext.define('AW.controller.Loans', {
 				var result	= response.responseText,
 					status	= response.status,
 					errors	= result;
-					
+				/*
+				Iria processar o status e questionar se o usuário queria fazer uma reserva. 
+				if (status === 422) { 
+					wait.hide();
+					//MENSAGEM DE ERRO COM CONFIRM. 
+
+					wait  = Ext.Msg.wait('Salvando reserva...');
+
+					Ext.ajax.request({
+						url 	: '/queue_lists', 
+						method  : 'POST', 
+						scope	: me, 
+						params	: params.params, 
+						callback: function(params, sucess, response) {
+							var result	= response.responseText,
+								status	= response.status,
+								errors	= result; 
+
+							try {
+								result = Ext.decode(result);
+							} catch (e) {}
+
+						win.fireEvent('save', result, values)
+						win.destroy();
+						}
+					})
+					return; 
+				}
+
+				*/ 
 				wait.hide();
 
 				try {
