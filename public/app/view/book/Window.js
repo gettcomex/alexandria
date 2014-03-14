@@ -97,7 +97,8 @@ Ext.define('AW.view.book.Window', {
 		},{
 			text	: 'Salvar',
 			action	: 'save',
-			itemId	: 'btn_save'
+			itemId	: 'btn_save', 
+			hidden  : !conf.user.is_employee
 		}];
 
 		me.callParent(arguments);

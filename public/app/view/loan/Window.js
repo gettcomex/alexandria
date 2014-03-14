@@ -40,7 +40,7 @@ Ext.define('AW.view.loan.Window', {
 				valueField	: 'id',
 				displayField: 'title_writer',  
 				allowBlank	: false,
-				editable	: false
+				editable	: true
 			},{
 				xtype		: 'combo',
 				fieldLabel 	: 'Usuário', 
