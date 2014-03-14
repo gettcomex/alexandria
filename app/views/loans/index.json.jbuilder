@@ -5,4 +5,6 @@ json.data @loans do |loan|
 	json.user_id 	loan.user_id
 	json.starts_at 	loan.starts_at
 	json.end_at		loan.end_at
+	json.book_title loan.book.title
+	json.user_name	loan.user.name
 end
