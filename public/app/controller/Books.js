@@ -15,6 +15,10 @@ Ext.define('AW.controller.Books', {
 		var me = this;
 
 		me.control({
+			'booklist': {
+				selectionchange:me.onSelectionChange,
+				itemdblclick: me.onDblClickList
+			},
 			'booklist button[action=add]':{
 				click: me.onClickButtonNew
 			},
@@ -44,16 +48,34 @@ Ext.define('AW.controller.Books', {
 	}, 
 
 //listeners list
+	onSelectionChange: function(sm, selected) {
+		var	list			= sm.view.ownerCt,
+			len				= selected.length,
+			btnEdit			= list.down('#btn_edit'),
+			btnDelete		= list.down('#btn_delete');
+
+		btnEdit.setDisabled(len !== 1);
+		btnDelete.setDisabled(len === 0);
+	}, 
+	onDblClickList: function(view) {
+
+		var me		= this,
+			grid	= view.up('grid'),
+			btnEdit	= grid.down('#btn_edit');
+		
+		if (!btnEdit.disabled) {
+			me.onClickButtonEdit(btnEdit);
+		}
+	},
 	onClickButtonNew: function() {
 		Ext.widget('bookwindow');
 	},
 
 	onClickButtonEdit: function(btn) {
 		var params = {};
-
+		
 		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId();
-
-		// O parametro recordId permite ao metodo enxergar que é uma edição de registro.
+		// O parametro recordID permite ao metodo enxergar que é uma edição de registro.
 		var win = Ext.widget('bookwindow', params);
 
 	}, 
@@ -101,6 +123,7 @@ Ext.define('AW.controller.Books', {
 			selected	= list.getSelectionModel().getSelection(),
 			len 		= selected.length,
 			ids			= [];
+
 		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
 
 		Ext.Msg.confirm('Atenção', msg, function(opt) {
