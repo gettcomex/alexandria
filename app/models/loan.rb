@@ -1,8 +1,8 @@
 # encoding: UTF-8
 class Loan < ActiveRecord::Base
 
-  has_one :book
-  has_one :user  
+  belongs_to :book
+  belongs_to :user  
 
   attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id
   

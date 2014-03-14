@@ -152,7 +152,8 @@ Ext.define('AW.controller.Users', {
 		params['user[name]']		= values.name;
 		params['user[login]']		= values.login;
 		params['user[email]']		= values.email;
-		
+		params['user[is_employee'] 	= false;
+
 		if (values.new_password) { 
 			params['user[password]']				= values.new_password; 
 			params['user[password_confirmation]']	= values.password_confirmation;

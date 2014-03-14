@@ -10,5 +10,10 @@ class CreateLoans < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :loans, :id
+    add_index :loans, :book_id
+    add_index :loans, :user_id
+
   end
 end

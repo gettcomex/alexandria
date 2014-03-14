@@ -8,5 +8,10 @@ class CreateQueueLists < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :queue_lists, :id
+    add_index :queue_lists, :book_id
+    add_index :queue_lists, :user_id
+
   end
 end

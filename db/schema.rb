@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
     t.integer  "book_type"
   end
 
+  add_index "books", ["id"], :name => "index_books_on_id"
+
   create_table "loans", :force => true do |t|
     t.integer  "book_id"
     t.integer  "user_id"
@@ -36,6 +38,10 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "loans", ["book_id"], :name => "index_loans_on_book_id"
+  add_index "loans", ["id"], :name => "index_loans_on_id"
+  add_index "loans", ["user_id"], :name => "index_loans_on_user_id"
+
   create_table "queue_lists", :force => true do |t|
     t.integer  "book_id"
     t.integer  "user_id"
@@ -44,6 +50,10 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "queue_lists", ["book_id"], :name => "index_queue_lists_on_book_id"
+  add_index "queue_lists", ["id"], :name => "index_queue_lists_on_id"
+  add_index "queue_lists", ["user_id"], :name => "index_queue_lists_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
