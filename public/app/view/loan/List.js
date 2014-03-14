@@ -24,11 +24,13 @@ Ext.define('AW.view.loan.List', {
 			},{
 				text	: 'Editar',
 				action	: 'edit',
-				itemId	: 'btn_edit'
+				itemId	: 'btn_edit',
+				disabled: true
 			},{
 				text	: 'Excluir',
 				action	: 'delete',
-				itemId	: 'btn_delete'
+				itemId	: 'btn_delete',
+				disabled: true
 			}]
 		},{
 			xtype	: 'toolbar',

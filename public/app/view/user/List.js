@@ -20,15 +20,19 @@ Ext.define('AW.view.user.List', {
 				text	: 'Novo',
 				action	: 'add',
 				itemId	: 'btn_new',
-				border	: true
+				border	: true,
+				hidden	: !conf.user.is_employee
 			},{
 				text	: 'Editar',
 				action	: 'edit',
-				itemId	: 'btn_edit'
+				itemId	: 'btn_edit',
+				disabled: true
 			},{
 				text	: 'Excluir',
 				action	: 'delete',
-				itemId	: 'btn_delete'
+				itemId	: 'btn_delete', 
+				disabled: true, 
+				hidden	: !conf.user.is_employee
 			}]
 		},{
 			xtype	: 'toolbar',
