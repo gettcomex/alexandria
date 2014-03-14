@@ -2,7 +2,8 @@
 Ext.define('AW.store.Users', {
 	extend		: 'Ext.data.Store', 
 	model		: 'AW.model.User', 
-	remoteSort 	: true, 
+	remoteSort 	: true,
+	autoLoad	: true,
 	sorters 	: ['users.name'], 
 	proxy		: {
 		type	: 'ajax', 
