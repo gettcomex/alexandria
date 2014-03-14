@@ -49,12 +49,12 @@ Ext.define('AW.view.loan.List', {
 
 		me.columns = [{
 			header		: 'Livro',
-			dataIndex	: 'book_id',
+			dataIndex	: 'book_title',
 			hideable	: false,
 			width		: 160
 		},{
 			header		: 'Usuário',
-			dataIndex	: 'user_id',
+			dataIndex	: 'user_name',
 			hideable	: false,
 			width		: 160
 		},{
