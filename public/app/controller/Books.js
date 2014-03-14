@@ -150,7 +150,7 @@ Ext.define('AW.controller.Books', {
 		params['book[writer]']		= values.writer;
 		params['book[copies]']		= values.copies;
 		params['book[pages]']		= values.pages;
-		params['book[book_type]']	= values.type_book;
+		params['book[book_type]']	= values.book_type;
 
 		return params; 
 	},
