@@ -10,6 +10,8 @@ Alexandria::Application.routes.draw do
 
   resources :users
 
+  match '/permissions'  => 'home#permissions'
+
   root :to => "home#index"
    
 end
