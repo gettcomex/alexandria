@@ -1,113 +1,85 @@
 # encoding: UTF-8
 class Loan < ActiveRecord::Base
 
-  belongs_to :book
-  belongs_to :user  
+	belongs_to :book
+	belongs_to :user
 
-  attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id
-  
-  after_initialize :set_default_date
-  
-  before_create :user_loans_limit?, :can_loan?, :set_update_user
+	validates_presence_of :book_id, :user_id, :starts_at, :end_at
 
-  before_update :can_user_renew_loan?
+	attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id
 
-  private
-  
-  def set_default_date
-  	self.starts_at = set_date(Time.now)
-  	  	
-  	self.end_at = set_date(Time.now + 7.day) 
-  end 
+	before_create :user_loans_limit?, :can_loan?, :set_default_date
 
-  def set_date(date)
-  	return (date.saturday?) ? date + 2.day : (date.sunday?) ? date + 1.day : date
-  end  
-  
-  def set_create_user
-  	
-  end
+	before_update :can_user_renew_loan?, :set_default_date
 
-  def set_update_user
-  	
-  end
+	private
 
-  def can_user_renew_loan?
+	def set_default_date
+		self.starts_at = set_date(Time.now)
+		self.end_at = set_date(Time.now + 7.day)
+	end
 
-  	# TODO : MUDAR ISSO 
-  	renew_loan_book = Book.find(self.book_id)
+	def set_date(date)
+		return (date.saturday?) ? date + 2.day : (date.sunday?) ? date + 1.day : date
+	end
 
-  	if not reserved_book?(renew_loan_book, self.user_id)
-  		return false
-  	end
+	def can_user_renew_loan?
 
-  	return true
-  end
+		renew_loan_book = Loan.find(self.id).book
 
-  def can_loan? 
- 
- 	# TODO : E MUDAR MAIS ISSO 
-  	book = Book.find(self.book_id)
-  	
+		if not reserved_book?(renew_loan_book, self.user_id)
+			return false
+		end
+		return true
+	end
 
-  	if not availability_book?(book)
-  		errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
-  		return false
-  	end
+	def can_loan?
 
-  	if not reserved_book?(book, self.user_id)
-  		
-  		return false
-  	end
+		book = Book.find(self.book_id)
 
-  end
+		if not availability_book?(book)
+			errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
+			return false
+		end
 
-  def availability_book?(book)
-  	
-  	loaned_books = Book.by_availability(book.id, Time.now).count
+		if not reserved_book?(book, self.user_id)
+			return false
+		end
+	end
 
-  	# TODO: ambiente de testes, mudar para equal 
-  	if loaned_books >= book.copies 
-  		return false
-  	end
+	def availability_book?(book)
+		loaned_books = Book.by_availability(book.id, Time.now).count
 
-  	# como o rails retorna o ultimo valor, tenho que forçar.
-  	return true 
+		if loaned_books >= book.copies
+			return false
+		end
+		# como o rails retorna o ultimo valor, tenho que forçar.
+		return true
+	end
 
-  end
+	def reserved_book?(book, user)
+		# Escopo faz a consulta mas não traz os dados da reserva :(
+		reserved_book = QueueList.where('queue_lists.book_id = ?', book.id).order('id').limit(1)
 
+		if !reserved_book.any?
+			return true
+		end
 
-  def reserved_book?(book, user)
+		if reserved_book[0].user_id != user
+			errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado para outro usuário"
+			return false
+		end
 
-  	# Escopo faz a consulta mas não traz os dados da reserva :(
-   	reserved_book = QueueList.where('queue_lists.book_id = ?', book.id).order('id').limit(1)
-   	#Book.by_wait_list(book_id).limit(1)
+		QueueList.delete(reserved_book[0].id)
+	end
 
-   	# passa ok
-   	if !reserved_book.any?
-   		return true
-   	end
+	def user_loans_limit?
 
-   	if reserved_book[0].user_id != user
-  		errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado para outro usuário"
-  		return false 
-  	end
+		user_loans_count = Loan.where("user_id = ? and starts_at >= ? and end_at >= ?", self.user_id, 7.days.ago, Time.now).count
 
-  	QueueList.delete(reserved_book[0].id)
-
-   end
-
-  def user_loans_limit? 
- 	pessoa = User.find(self.user_id)
-  	
-  	# TODO: melhorar a parte final do select da data de entrega, porque dois to_datetime.
-  	id_loans_count = pessoa.loans.select { | loan | loan.starts_at >= 7.days.ago && loan.end_at.to_datetime >= Time.now.to_datetime}.count
-
-  	if id_loans_count >= 3 && !pessoa.is_employee || id_loans_count >= 10 
-  		errors.add :limit_loans, "O usuário #{pessoa.name} atingiu o limite de empréstimos" 
-  		return false 
-  	end
-
-  end 
-
+		if user_loans_count >= 3 && !current_user.is_employee || user_loans_count >= 10
+			errors.add :limit_loans, "O usuário #{current_user.name} atingiu o limite de empréstimos"
+			return false
+		end
+	end
 end
