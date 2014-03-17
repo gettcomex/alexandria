@@ -19,15 +19,15 @@ Ext.define('AW.controller.Users', {
 				itemdblclick: me.onDblClickList
 			},
 			'userlist button[action=add]':{
-				click: me.onClickButtonNew
+				click: me.onClickBtnNew
 			},
 
 			'userlist button[action=edit]':{
-				click: me.onClickButtonEdit 
+				click: me.onClickBtnEdit 
 			},
 
 			'userlist button[action=delete]': {
-				click: me.onClickButtonDelete
+				click: me.onClickBtnDelete
 			},
 
 			'userwindow':{
@@ -35,11 +35,11 @@ Ext.define('AW.controller.Users', {
 			},
 
 			'userwindow button[action=close]':{
-				click: me.onClickButtonClose
+				click: me.onClickBtnClose
 			},
 
 			'userwindow button[action=save]':{
-				click: me.onClickButtonSave
+				click: me.onClickBtnSave
 			}
 		});
 
@@ -62,14 +62,14 @@ Ext.define('AW.controller.Users', {
 			btnEdit	= grid.down('#btn_edit');
 		
 		if (!btnEdit.disabled) {
-			me.onClickButtonEdit(btnEdit);
+			me.onClickBtnEdit(btnEdit);
 		}
 	},
-	onClickButtonNew: function() {
+	onClickBtnNew: function() {
 		Ext.widget('userwindow');
 	},
 
-	onClickButtonEdit: function(btn) {
+	onClickBtnEdit: function(btn) {
 		var params = {};
 		
 		params.recordID = btn.up('grid').getSelectionModel().getLastSelected().getId();
@@ -78,13 +78,13 @@ Ext.define('AW.controller.Users', {
 
 	}, 
 
-	onClickButtonClose: function(btn) {
+	onClickBtnClose: function(btn) {
 		var win = btn.up('window');
 
 		win.destroy();
 	},
 
-	onClickButtonSave: function(btn) {
+	onClickBtnSave: function(btn) {
 		var me 			= this,
 			wait		= Ext.Msg.wait('Salvando registro...'),
 			win 		= btn.up('window'),
@@ -120,7 +120,7 @@ Ext.define('AW.controller.Users', {
 
 	},
 
-	onClickButtonDelete: function(btn) {
+	onClickBtnDelete: function(btn) {
 		var me			= this,
 			list		= btn.up('gridpanel'),
 			selected	= list.getSelectionModel().getSelection(),
