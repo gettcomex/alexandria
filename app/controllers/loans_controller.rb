@@ -2,7 +2,7 @@ class LoansController < ApplicationController
 
 	respond_to :json
 	load_and_authorize_resource
-	#before_filter :load_resources, only: %w(create update)
+	before_filter :load_resources, only: %w(create update)
 
 	def index
 		@loans = Loan.select("id, book_id, user_id, starts_at, end_at")
