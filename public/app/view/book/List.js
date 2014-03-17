@@ -1,4 +1,4 @@
-/*globals Ext, t, conf*/
+/*globals Ext, conf*/
 Ext.define('AW.view.book.List', {
 	extend	: 'Ext.grid.Panel',
 	alias	: 'widget.booklist',
@@ -14,8 +14,8 @@ Ext.define('AW.view.book.List', {
 		me.dockedItems = [{
 			xtype	: 'toolbar',
 			dock	: 'top',
-			height	: 37,
 			border	: false,
+			height	: 37,
 			items	: [{
 				text	: 'Novo',
 				action	: 'add',
@@ -56,15 +56,13 @@ Ext.define('AW.view.book.List', {
 			header		: 'Título',
 			dataIndex	: 'title',
 			hideable	: false,
-			width		: 250
+			flex		: 1
 		},{
 			header		: 'Autor',
 			dataIndex	: 'writer',
 			hideable	: false,
-			width		: 160
+			flex		: 1
 		}];
-
-		me.height = 550;
 
 		me.callParent(arguments);
 		me.store.loadPage(1);
