@@ -4,16 +4,16 @@ Ext.define('AW.view.Viewport', {
 	items	: [{
 		xtype	: 'tabpanel',
 		region	: 'center',
-		tabBar: {
-	        items: [{
-	            xtype: 'tbfill'
-	        }, {
-	            xtype	: 'button',
-	            text	: 'Logout',
-	            itemID  : 'btnLogout',
-	            action 	: 'sign_out'
-	    	}]
-	    }, 
+		tabBar	: {
+			items	: [{
+				xtype: 'tbfill'
+			},{
+				xtype	: 'button',
+				text	: 'Logout',
+				itemID	: 'btnLogout',
+				action	: 'sign_out'
+			}]
+		},
 		items	: [{
 			title	: 'Usuários',
 			items	: [{
@@ -25,10 +25,12 @@ Ext.define('AW.view.Viewport', {
 				xtype	: 'booklist'
 			}]
 		},{
-			title	: 'Empréstimos', 
+			title	: 'Empréstimos',
 			items	: [{
 				xtype	: 'loanlist'
 			}]
-		}] 
+		},{
+			title	: 'Relatório'
+		}]
 	}]
 });
