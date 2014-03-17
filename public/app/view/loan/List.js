@@ -81,8 +81,6 @@ Ext.define('AW.view.loan.List', {
 			width		: 120
 		}];
 
-		me.height = 550;
-
 		me.callParent(arguments);
 		me.store.loadPage(1);
 	}
