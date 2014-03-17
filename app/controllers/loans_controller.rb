@@ -2,7 +2,6 @@ class LoansController < ApplicationController
 
 	respond_to :json
 	load_and_authorize_resource
-	before_filter :load_resources, only: %w(create update)
 
 	def index
 		@loans = Loan.select("id, book_id, user_id, starts_at, end_at")
@@ -25,6 +24,7 @@ class LoansController < ApplicationController
 	end
 
 	def create 
+		debugger
 		@loan = Loan.new(params[:loan])
 	
 		if @loan.save
@@ -40,7 +40,7 @@ class LoansController < ApplicationController
 		# else
 		# 	# Reserva de livros, não encontramos outra maneira 
 		# 	@queuelist = QueueList.new(params[:loan])
-			
+
 		# 	#FIXME Verificar o funcionamento, se não criar um auto form...
 		# 	if @queuelist.save
 		# 		render json: @queuelist.id, status: :ok
