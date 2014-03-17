@@ -7,13 +7,14 @@ class LoansController < ApplicationController
 	def index
 		@loans = Loan.select("id, book_id, user_id, starts_at, end_at")
 
-		respond_to do |format|
-			format.html { render layout: 'system' } # index.html.erb
-			format.json {
-				@loans_count = @loans.size
-				@loans = @loans.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
-			}
+		if !current_user.is_employee?
+			@loans = @loans.where(user_id: current_user)
 		end
+
+		@loans_count = @loans.size
+		@loans = @loans.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
+		
+		respond_with @loan
 	end
 
 	def show
@@ -72,12 +73,4 @@ class LoansController < ApplicationController
 		Loan.destroy params[:id].split(',')
 		render nothing: true
 	end
-
-	protected 
-	def load_resources
-		@users = User.all
-		@loans = Loan.all
-		@queue_list = QueueList
-	end 
-
 end
