@@ -47,18 +47,18 @@ Ext.define('AW.view.loan.List', {
 			}]
 		}];
 
-		me.selModel = sm; 
+		me.selModel = sm;
 
 		me.columns = [{
 			header		: 'Livro',
 			dataIndex	: 'book_title',
 			hideable	: false,
-			width		: 160
+			flex		: 1
 		},{
 			header		: 'Usuário',
 			dataIndex	: 'user_name',
 			hideable	: false,
-			width		: 160
+			flex		: 1
 		},{
 			header		: 'Período', 
 			columns		: [{
@@ -78,7 +78,7 @@ Ext.define('AW.view.loan.List', {
 			xtype		: 'checkcolumn',
 			header		: 'Devolvido',
 			hideable	: false,
-			width		: 160
+			width		: 120
 		}];
 
 		me.height = 550;
