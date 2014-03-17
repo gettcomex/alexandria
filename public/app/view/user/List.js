@@ -1,4 +1,4 @@
-/*globals Ext, t, conf*/
+/*globals Ext, conf*/
 Ext.define('AW.view.user.List', {
 	extend	: 'Ext.grid.Panel',
 	alias	: 'widget.userlist',
@@ -30,8 +30,8 @@ Ext.define('AW.view.user.List', {
 			},{
 				text	: 'Excluir',
 				action	: 'delete',
-				itemId	: 'btn_delete', 
-				disabled: true, 
+				itemId	: 'btn_delete',
+				disabled: true,
 				hidden	: !conf.user.is_employee
 			}]
 		},{
@@ -49,22 +49,23 @@ Ext.define('AW.view.user.List', {
 			}]
 		}];
 
-		me.selModel = sm; 
+		me.selModel = sm;
 
 		me.columns = [{
 			header		: 'Name',
 			dataIndex	: 'name',
 			hideable	: false,
-			width		: 250
+			flex		: 1,
+			minWidth	: 250
+
 		},{
 			xtype		: 'checkcolumn',
 			header		: 'Funcionário',
 			dataIndex	: 'is_employee',
+			disabled	: true,
 			hideable	: false,
-			width		: 160
+			width		: 100
 		}];
-
-		me.height = 550;
 
 		me.callParent(arguments);
 		me.store.loadPage(1);
