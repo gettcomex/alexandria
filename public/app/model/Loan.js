@@ -6,7 +6,7 @@ Ext.define('AW.model.Loan', {
 		{name: 'book_title', type: 'string'},
 		{name: 'user_id',	type: 'int'},
 		{name: 'user_name', type: 'string'},
-		{name: 'starts_at',	type: 'date'},
-		{name: 'end_at',	type: 'date'}, 
+		{name: 'starts_at',	type: 'datetime'},
+		{name: 'end_at',	type: 'datetime'}, 
 	]
 });
