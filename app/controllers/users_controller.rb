@@ -5,13 +5,8 @@ class UsersController < ApplicationController
 	def index
 		@users = User.select('id, name, is_employee')
 		
-		respond_to do |format|
-			format.html { render layout: 'system' } # index.html.erb
-			format.json {
-				@users_count = @users.size
-				@users = @users.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
-			}
-		end
+		@users_count = @users.size
+		@users = @users.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
 	end
 
 	def show
@@ -21,7 +16,6 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		debugger
 		if @user.save
 			render json: @user.id, status: :ok
 		else
@@ -29,8 +23,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	# PUT /users/1
-	# PUT /users/1.json
 	def update
 		@user = User.find params[:id]
 		if @user.update_attributes params[:user]
@@ -40,8 +32,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	# DELETE /users/1
-	# DELETE /users/1.json
 	def destroy
 		User.destroy params[:id].split(',')
 		render nothing: true
