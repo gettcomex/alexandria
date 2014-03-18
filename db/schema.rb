@@ -14,24 +14,26 @@
 ActiveRecord::Schema.define(:version => 20140313191205) do
 
   create_table "books", :force => true do |t|
-    t.string   "title"
-    t.string   "writer"
-    t.integer  "pages"
-    t.integer  "copies"
+    t.string   "title",      :limit => 260,   :null => false
+    t.string   "writer",     :limit => 160,   :null => false
+    t.integer  "pages",      :limit => 50560, :null => false
+    t.integer  "copies",     :limit => 15,    :null => false
     t.integer  "created_by"
     t.integer  "update_by"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.integer  "book_type"
   end
 
   add_index "books", ["id"], :name => "index_books_on_id"
+  add_index "books", ["title"], :name => "index_books_on_title"
+  add_index "books", ["writer"], :name => "index_books_on_writer"
 
   create_table "loans", :force => true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.datetime "starts_at"
-    t.datetime "end_at"
+    t.integer  "book_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "starts_at",  :null => false
+    t.datetime "end_at",     :null => false
     t.integer  "created_by"
     t.integer  "update_by"
     t.datetime "created_at", :null => false
@@ -43,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
   add_index "loans", ["user_id"], :name => "index_loans_on_user_id"
 
   create_table "queue_lists", :force => true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
+    t.integer  "book_id",    :null => false
+    t.integer  "user_id",    :null => false
     t.integer  "created_by"
     t.integer  "update_by"
     t.datetime "created_at", :null => false
@@ -56,20 +58,20 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
   add_index "queue_lists", ["user_id"], :name => "index_queue_lists_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "login"
+    t.string   "name",                   :limit => 200,                    :null => false
+    t.string   "login",                  :limit => 20,                     :null => false
+    t.boolean  "is_employee",                           :default => false
     t.string   "password"
-    t.boolean  "is_employee"
     t.integer  "created_by"
     t.integer  "update_by"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",                    :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",                         :default => 0,     :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -77,6 +79,9 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["id"], :name => "index_users_on_id"
+  add_index "users", ["login"], :name => "index_users_on_login"
+  add_index "users", ["password"], :name => "index_users_on_password"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
