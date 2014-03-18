@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
-		@books = Book.select("id, title, writer, pages, copies, created_at, updated_at, title || ' - ' || writer as title_writer")
+		@books = Book.select("id, title, writer, pages, copies, created_at, updated_at, CONCAT(title, ' - ', writer) as title_writer")
 
 		@books_count = @books.size
 		@books = @books.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		@book = Book.select("title, writer, pages, copies, book_type, title || ' - ' || writer as title_writer").find params[:id]
+		@book = Book.select("title, writer, pages, copies, book_type, CONCAT(title, ' - ', writer) as title_writer").find params[:id]
 		respond_with @book
 	end
 
