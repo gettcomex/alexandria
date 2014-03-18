@@ -2,13 +2,12 @@ Alexandria::Application.routes.draw do
 
 	devise_for :users, :skip => [:registrations]
 	devise_scope :user do
-  		get "signup",   :to => "accounts#new"
-  		get "signin",   :to => "devise/sessions#new"
-  		get "signout",  :to => "devise/sessions#destroy"
-  		get "cancel_user_registration", :to => "devise/registrations#cancel"
-  		post "user_registration",       :to => "users#create"
-  		get "new_user_registration",    :to => "accounts#new"
-  		get "edit_user_registration",   :to => "users#edit"
+		get "signup",   :to => "users#create"
+		get "signin",   :to => "devise/sessions#new"
+		get "signout",  :to => "devise/sessions#destroy"
+		get "cancel_user_registration", :to => "devise/registrations#cancel"
+		post "user_registration",       :to => "users#create"
+		get "new_user_registration",    :to => "devise/registrations#new"
 	end
 	
 	resources :users
