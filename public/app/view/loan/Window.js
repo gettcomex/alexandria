@@ -40,7 +40,7 @@ Ext.define('AW.view.loan.Window', {
 				valueField	: 'id',
 				displayField: 'title_writer',  
 				allowBlank	: false,
-				editable	: true
+				editable	: false
 			},{
 				xtype		: 'combo',
 				fieldLabel 	: 'Usuário', 
@@ -55,14 +55,13 @@ Ext.define('AW.view.loan.Window', {
 				xtype 		: 'fieldcontainer',
 				fieldLabel	: 'Período',
 				layout		: 'column',
-       			labelWidth	: 80,
+				labelWidth	: 80,
 				items 		: [{
 					xtype		: 'datefield', 
 					format		: "d/m/Y",
 					fieldLabel	: 'De',
 					name 		: 'starts_at',
 					itemId		: 'date_starts_at',
-					value 		: new Date(),
 					maxValue	: new Date(),
 					minValue	: new Date(),
 					disabled 	: false,
