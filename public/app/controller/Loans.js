@@ -193,6 +193,8 @@ Ext.define('AW.controller.Loans', {
 				},
 				failure	: function() {}
 			});
+		} else {
+			this.setDefaultDate(win)
 		}
 	},
 
@@ -202,8 +204,8 @@ Ext.define('AW.controller.Loans', {
 
 		params['loan[book_id]']	= values.book_id;
 		params['loan[user_id]']	= values.user_id;
-		// params['loan[starts_at]']	= values.starts_at;
-		// params['loan[end_at]']	= values.end_at;
+		params['loan[starts_at]']	= values.starts_at;
+		params['loan[end_at]']	= values.end_at;
 
 		return params; 
 	},
@@ -218,5 +220,19 @@ Ext.define('AW.controller.Loans', {
 			list.store.loadPage(list.store.currentPage);
 			list.getSelectionModel().deselectAll();	
 		}
-	}
+	},
+	setDefaultDate: function(win) {
+		var me		= this,
+			dataIni	= win.down('#date_starts_at'),
+			dataFim	= win.down('#date_end_at'),
+			today	= new Date(),
+			delivery = new Date(today.getTime() + 7*24*60*60*1000);
+
+		dataIni.setValue(me.calcDate(today));
+		dataFim.setValue(me.calcDate(delivery));
+
+	}, 
+	calcDate: function(today) {
+		return (today.getDay() === 6) ? new Date(today.setDate(today.getDate() + 2)) : (today.getDay() === 0) ? new Date(today.setDate(today.getDate() + 1)): today;
+	} 
 });
