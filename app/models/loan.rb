@@ -34,10 +34,8 @@ class Loan < ActiveRecord::Base
 
 	def can_loan?
 
-		book = Book.find(self.book_id)
-
-		if not availability_book?(book)
-			errors.add :all_loaned_books, "Todas as cópias do livro #{book.title} se encontram emprestadas"
+		if not availability_book?(self.book)
+			errors.add :all_loaned_books, "Todas as cópias do livro #{self.book.title} se encontram emprestadas"
 			return false
 		end
 
