@@ -11,12 +11,14 @@ Alexandria::Application.routes.draw do
 	end
 	
 	resources :users
-
-	resources :loans
 	resources :queue_lists
 	resources :books
-	
-	match '/permissions'  => 'home#permissions'
+
+	resources :loans do
+		put '/set_returned/:id',	on: :collection,	action: :set_returned
+	end
+
+	match '/permissions'		=> 'home#permissions'
 
 	root :to => "home#index"
 end
