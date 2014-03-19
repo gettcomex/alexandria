@@ -8,7 +8,7 @@ Ext.define('AW.view.loan.List', {
 
 //init
 	initComponent: function() {
-		var me = this, 
+		var me = this,
 			sm = Ext.create('Ext.selection.CheckboxModel');
 
 		me.dockedItems = [{
@@ -31,6 +31,12 @@ Ext.define('AW.view.loan.List', {
 				action	: 'delete',
 				itemId	: 'btn_delete',
 				disabled: true
+			},{
+				text	: 'Devolver',
+				action	: 'return_book',
+				itemId	: 'btn_return',
+				disabled: true,
+				hidden	: !conf.user.is_employee
 			}]
 		},{
 			xtype	: 'toolbar',
@@ -60,25 +66,27 @@ Ext.define('AW.view.loan.List', {
 			hideable	: false,
 			flex		: 1
 		},{
-			header		: 'Período', 
+			header		: 'Período',
 			columns		: [{
 				xtype		: 'datecolumn',
 				format		: 'd-m-Y',
 				header		: 'De',
-				dataIndex	: 'starts_at', 
-				hideable	: false, 
+				dataIndex	: 'starts_at',
+				hideable	: false,
 				width    	: 90
 			},{
 				xtype		: 'datecolumn',
 				format		: 'd-m-Y',
-				header		: 'Até', 
+				header		: 'Até',
 				dataIndex 	: 'end_at',
-				hideable	: false, 
+				hideable	: false,
 				width    	: 90
 			}]
 		},{
 			xtype		: 'checkcolumn',
 			header		: 'Devolvido',
+			dataIndex	: 'returned',
+			disabled	: true,
 			hideable	: false,
 			width		: 120
 		}];
