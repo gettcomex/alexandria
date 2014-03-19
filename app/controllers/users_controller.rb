@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 	def index
 		@users = User.select('id, name, is_employee')
 		
+		if !current_user.is_employee?
+			@users = @users.where(id: current_user.id)
+		end
 		@users_count = @users.size
 		@users = @users.page(params[:page].to_i).limit(params[:limit].to_i).offset(params[:start].to_i) unless params[:page].blank?
 	end
