@@ -4,7 +4,7 @@ class LoansController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-		@loans = Loan.select("id, book_id, user_id, starts_at, end_at")
+		@loans = Loan.select("id, book_id, user_id, starts_at, end_at, returned")
 
 		if !current_user.is_employee?
 			@loans = @loans.where(user_id: current_user)
@@ -68,8 +68,15 @@ class LoansController < ApplicationController
 		
 	end
 
+	def set_returned
+		# TODO: refatorar o codigo para poder monitar o sucesso de cada update.
+		Loan.update_all(["returned = true"], 'id' => params[:id])
+		render json: :ok
+	end
+
 	def destroy
 		Loan.destroy params[:id].split(',')
 		render nothing: true
 	end
+
 end
