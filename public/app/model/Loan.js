@@ -1,3 +1,4 @@
+/*globals Ext*/
 Ext.define('AW.model.Loan', {
 	extend	: 'Ext.data.Model',
 	fields	: [
