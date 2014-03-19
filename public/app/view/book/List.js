@@ -32,8 +32,13 @@ Ext.define('AW.view.book.List', {
 				text	: 'Excluir',
 				action	: 'delete',
 				itemId	: 'btn_delete',
-				disabled: true, 
+				disabled: true,
 				hidden	: !conf.user.is_employee
+			},{
+				text	: 'Emprestar',
+				action	: 'loan',
+				itemId	: 'btn_loan',
+				disabled: 'true'
 			}]
 		},{
 			xtype	: 'toolbar',
