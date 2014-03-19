@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(:version => 20140313191205) do
 
   create_table "books", :force => true do |t|
-    t.string   "title",      :limit => 260,   :null => false
-    t.string   "writer",     :limit => 160,   :null => false
-    t.integer  "pages",      :limit => 50560, :null => false
-    t.integer  "copies",     :limit => 15,    :null => false
+    t.string   "title",      :limit => 260, :null => false
+    t.string   "writer",     :limit => 160, :null => false
+    t.integer  "pages",                     :null => false
+    t.integer  "copies",                    :null => false
     t.integer  "created_by"
     t.integer  "update_by"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "book_type"
   end
 
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
   create_table "loans", :force => true do |t|
     t.integer  "book_id",    :null => false
     t.integer  "user_id",    :null => false
-    t.datetime "starts_at",  :null => false
-    t.datetime "end_at",     :null => false
+    t.date     "starts_at",  :null => false
+    t.date     "end_at",     :null => false
     t.integer  "created_by"
     t.integer  "update_by"
     t.datetime "created_at", :null => false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20140313191205) do
     t.string   "name",                   :limit => 200,                    :null => false
     t.string   "login",                  :limit => 20,                     :null => false
     t.boolean  "is_employee",                           :default => false
-    t.string   "password"
+    t.string   "password",               :limit => 15
     t.integer  "created_by"
     t.integer  "update_by"
     t.datetime "created_at",                                               :null => false

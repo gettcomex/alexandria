@@ -181,7 +181,6 @@ Ext.define('AW.controller.Loans', {
 
 	onShowWin: function(win) {
 		if (win.recordID) {
-
 			win.child('form').getForm().load({
 				url			: 'loans/' + win.recordID,
 				method		: 'GET',
@@ -189,6 +188,7 @@ Ext.define('AW.controller.Loans', {
 				waitMsg		: ' ',
 				scope		: this,
 				success		: function(form, action) {
+					debugger
 					win.data = action.result;
 				},
 				failure	: function() {}
@@ -202,10 +202,10 @@ Ext.define('AW.controller.Loans', {
 	getParamsWin: function(values) {
 		var params	= {};
 
-		params['loan[book_id]']	= values.book_id;
-		params['loan[user_id]']	= values.user_id;
+		params['loan[book_id]']		= values.book_id;
+		params['loan[user_id]']		= values.user_id;
 		params['loan[starts_at]']	= values.starts_at;
-		params['loan[end_at]']	= values.end_at;
+		params['loan[end_at]']		= values.end_at;
 
 		return params; 
 	},
