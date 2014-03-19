@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-	has_many :queue_lists
-	has_many :loans
+	has_many :queue_lists,	dependent: :destroy
+	has_many :loans,		dependent: :destroy
 
 	validates :email,		presence: true
 	validates :password,	presence: true, :on => :create, length: {minimum: 6, maximum: 15}

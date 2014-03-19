@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
-	has_many :queue_lists
-	has_many :loans
+	has_many :queue_lists,	dependent: :destroy
+	has_many :loans,		dependent: :destroy
 
 	validates :book_type,	presence: true
 	validates :title,		presence: true, length: {minimum: 3, maximum: 260}
