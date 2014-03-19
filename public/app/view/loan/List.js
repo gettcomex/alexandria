@@ -62,15 +62,17 @@ Ext.define('AW.view.loan.List', {
 		},{
 			header		: 'Período', 
 			columns		: [{
+				xtype		: 'datecolumn',
+				format		: 'd-m-Y',
 				header		: 'De',
 				dataIndex	: 'starts_at', 
-				renderer	: Ext.util.Format.dateRenderer('d/m/Y'),
 				hideable	: false, 
 				width    	: 90
 			},{
+				xtype		: 'datecolumn',
+				format		: 'd-m-Y',
 				header		: 'Até', 
 				dataIndex 	: 'end_at',
-				renderer	: Ext.util.Format.dateRenderer('d/m/Y'),
 				hideable	: false, 
 				width    	: 90
 			}]
