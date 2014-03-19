@@ -1,3 +1,4 @@
+/*globals Ext*/
 Ext.define('AW.model.User', {
 	extend	: 'Ext.data.Model', 
 	fields	: [
