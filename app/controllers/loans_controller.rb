@@ -23,8 +23,7 @@ class LoansController < ApplicationController
 		respond_with @loan 
 	end
 
-	def create 
-		debugger
+	def create
 		@loan = Loan.new(params[:loan])
 	
 		if @loan.save
