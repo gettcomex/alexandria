@@ -31,6 +31,10 @@ Ext.define('AW.controller.Books', {
 				click: me.onClickBtnDelete
 			},
 
+			'booklist button[action=loan]': {
+				click: me.onClickBtnLoan
+			},
+
 			'bookwindow':{
 				show: me.onShowWin
 			},
@@ -49,13 +53,15 @@ Ext.define('AW.controller.Books', {
 
 //listeners list
 	onSelectionChange: function(sm, selected) {
-		var	list			= sm.view.ownerCt,
-			len				= selected.length,
-			btnEdit			= list.down('#btn_edit'),
-			btnDelete		= list.down('#btn_delete');
+		var	list		= sm.view.ownerCt,
+			len			= selected.length,
+			btnEdit		= list.down('#btn_edit'),
+			btnDelete	= list.down('#btn_delete'),
+			btnLoan		= list.down('#btn_loan');
 
 		btnEdit.setDisabled(len !== 1);
 		btnDelete.setDisabled(len === 0);
+		btnLoan.setDisabled(len !== 1);
 	}, 
 	onDblClickList: function(view) {
 
@@ -148,6 +154,30 @@ Ext.define('AW.controller.Books', {
 		});
 	},
 
+	onClickBtnLoan: function(btn) {
+		var me	= this,
+			wait	= Ext.Msg.wait('Emprestando Livro...');
+
+		Ext.Ajax.request({
+			url		: '/loans/',
+			method	: 'POST',
+			scope	: me,
+			params	: me.getParamsLoan(btn),
+			callback: function(params, sucess, response) {
+				var result	= response.responseText,
+					status	= response.status,
+					errors	= result;
+
+				wait.hide();
+
+				try {
+					result	= Ext.decode(result);
+				} catch (e) {}
+			}
+		});
+		me.loadList('loanlist');
+	},
+
 	onShowWin: function(win) {
 		if (win.recordID) {
 
@@ -176,6 +206,14 @@ Ext.define('AW.controller.Books', {
 		params['book[book_type]']	= values.book_type;
 
 		return params; 
+	},
+	getParamsLoan: function(btn) {
+		var params	= {};
+
+		params['loan[user_id]']		= conf.user.id;
+		params['loan[book_id]']		= btn.up('grid').getSelectionModel().getLastSelected().getId();
+
+		return params;
 	},
 	loadList: function(name) {
 		var list = name;
