@@ -3,8 +3,8 @@ class CreateLoans < ActiveRecord::Migration
     create_table :loans do |t|
       t.integer :book_id,		null: false
       t.integer :user_id,		null: false
-      t.datetime :starts_at,	null: false
-      t.datetime :end_at,		null: false
+      t.date	:starts_at,		null: false
+      t.date	:end_at,		null: false
       t.integer :created_by
       t.integer :update_by
 
