@@ -13,7 +13,6 @@ class Loan < ActiveRecord::Base
 	before_update :can_user_renew_loan?, :set_default_date
 
 	private
-
 	def set_default_date
 		self.starts_at = set_date(Time.now)
 		self.end_at = set_date(Time.now + 7.day)
