@@ -188,7 +188,6 @@ Ext.define('AW.controller.Loans', {
 				waitMsg		: ' ',
 				scope		: this,
 				success		: function(form, action) {
-					debugger
 					win.data = action.result;
 				},
 				failure	: function() {}
