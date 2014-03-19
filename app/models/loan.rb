@@ -6,7 +6,7 @@ class Loan < ActiveRecord::Base
 
 	validates_presence_of :book_id, :user_id, :starts_at, :end_at
 
-	attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id
+	attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id, :returned
 
 	before_create :user_loans_limit?, :can_loan?, :set_default_date
 
