@@ -8,11 +8,13 @@ class Loan < ActiveRecord::Base
 
 	attr_accessible :book_id, :created_by, :end_at, :starts_at, :update_by, :user_id, :returned
 
-	before_create :user_loans_limit?, :can_loan?, :set_default_date
+	before_validation :set_default_date 
 
-	before_update :can_user_renew_loan?, :set_default_date
+	before_create :user_loans_limit?, :can_loan?
 
-	private
+	before_update :can_user_renew_loan?
+
+
 	def set_default_date
 		self.starts_at = set_date(Time.now)
 		self.end_at = set_date(Time.now + 7.day)
