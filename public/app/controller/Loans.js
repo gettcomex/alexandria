@@ -32,6 +32,10 @@ Ext.define('AW.controller.Loans', {
 				click: me.onClickBtnDelete
 			},
 
+			'loanlist button[action=return_book]' : {
+				click: me.onClickBtnReturn
+			},
+
 			'loanwindow':{
 				show: me.onShowWin
 			},
@@ -53,11 +57,13 @@ Ext.define('AW.controller.Loans', {
 		var	list			= sm.view.ownerCt,
 			len				= selected.length,
 			btnEdit			= list.down('#btn_edit'),
-			btnDelete		= list.down('#btn_delete');
+			btnDelete		= list.down('#btn_delete'),
+			btnReturn		= list.down('#btn_return');
 
 		btnEdit.setDisabled(len !== 1);
 		btnDelete.setDisabled(len === 0);
-	}, 
+		btnReturn.setDisabled(len === 0);
+	},
 	onDblClickList: function(view) {
 		var me		= this,
 			grid	= view.up('grid'),
@@ -80,7 +86,64 @@ Ext.define('AW.controller.Loans', {
 		// O parametro recordId permite ao metodo enxergar que é uma edição de registro.
 		var win = Ext.widget('loanwindow', params);
 
-	}, 
+	},
+
+	onClickBtnReturn: function(btn) {
+		var me		= this,
+			list		= btn.up('gridpanel'),
+			selected	= list.getSelectionModel().getSelection(),
+			len			= selected.length,
+			ids 		= [];
+
+		Ext.each(selected, function(r) {
+			ids.push(r.getId());
+		});
+
+		Ext.Ajax.request({
+			url		: '/loans/set_returned/' + ids.join(','),
+			method	: 'PUT',
+			scope	: me, 
+			callback: function(params, sucess, response) {
+				var result	= response.responseText,
+					status	= response.status,
+					errors	= result;
+				try {
+					result = Ext.decode(result);
+				} catch (e) {}
+			}
+		});
+	},
+
+	onClickBtnDelete: function(btn) {
+		var me			= this,
+			list		= btn.up('gridpanel'),
+			selected	= list.getSelectionModel().getSelection(),
+			len 		= selected.length,
+			ids			= [];
+
+		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
+
+		Ext.Msg.confirm('Atenção', msg, function(opt) {
+			if (opt === 'no') {
+				return;
+			}
+
+			Ext.each(selected, function(r) {
+				ids.push(r.getId());
+			});
+
+			Ext.Ajax.request({
+				url		: '/loans/' + ids.join(','),
+				method	: 'DELETE',
+				success	: function(response) {
+					me.loadList('loanlist');
+				},
+				failure	: function(response) {
+					var data	= Ext.decode(response.responseText).data;
+				}		
+			})
+		});
+	},
 
 	onClickBtnClose: function(btn) {
 		var win = btn.up('window');
@@ -146,37 +209,6 @@ Ext.define('AW.controller.Loans', {
 		});
 
 		me.loadList('loanlist');
-	},
-
-	onClickBtnDelete: function(btn) {
-		var me			= this,
-			list		= btn.up('gridpanel'),
-			selected	= list.getSelectionModel().getSelection(),
-			len 		= selected.length,
-			ids			= [];
-
-		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
-
-		Ext.Msg.confirm('Atenção', msg, function(opt) {
-			if (opt === 'no') {
-				return;
-			}
-
-			Ext.each(selected, function(r) {
-				ids.push(r.getId());
-			});
-
-			Ext.Ajax.request({
-				url		: '/loans/' + ids.join(','),
-				method	: 'DELETE',
-				success	: function(response) {
-					me.loadList('loanlist');
-				},
-				failure	: function(response) {
-					var data	= Ext.decode(response.responseText).data;
-				}		
-			})
-		});
 	},
 
 	onShowWin: function(win) {
