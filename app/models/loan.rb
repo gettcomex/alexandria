@@ -74,7 +74,7 @@ class Loan < ActiveRecord::Base
 
 	def user_loans_limit?
 
-		user_loans_count = Loan.where("user_id = ? and starts_at >= ? and end_at >= ?", self.user_id, 7.days.ago, Time.now).count
+		user_loans_count = Loan.where("user_id = ? and starts_at >= ? and end_at >= ? and returned = false", self.user_id, 7.days.ago, Time.now).count
 
 		if user_loans_count >= 3 && !self.user.is_employee || user_loans_count >= 10
 			errors.add :limit_loans, "O usuário #{self.user.name} atingiu o limite de empréstimos"
