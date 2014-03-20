@@ -62,7 +62,7 @@ Ext.define('AW.controller.Loans', {
 
 		btnEdit.setDisabled(len !== 1);
 		btnDelete.setDisabled(len === 0);
-		btnReturn.setDisabled(len === 0);
+		btnReturn.setDisabled(len !== 1);
 	},
 	onDblClickList: function(view) {
 		var me		= this,
@@ -89,20 +89,15 @@ Ext.define('AW.controller.Loans', {
 	},
 
 	onClickBtnReturn: function(btn) {
-		var me		= this,
+		var me			= this,
 			list		= btn.up('gridpanel'),
-			selected	= list.getSelectionModel().getSelection(),
-			len			= selected.length,
-			ids 		= [];
-
-		Ext.each(selected, function(r) {
-			ids.push(r.getId());
-		});
+			recordID	= list.getSelectionModel().getLastSelected().getId();
 
 		Ext.Ajax.request({
-			url		: '/loans/set_returned/' + ids.join(','),
+			url		: '/loans/' + recordID,
 			method	: 'PUT',
-			scope	: me, 
+			scope	: me,
+			params	: me.getParams(),
 			callback: function(params, sucess, response) {
 				var result	= response.responseText,
 					status	= response.status,
@@ -112,6 +107,7 @@ Ext.define('AW.controller.Loans', {
 				} catch (e) {}
 			}
 		});
+		me.loadList('loanlist');
 	},
 
 	onClickBtnDelete: function(btn) {
@@ -239,6 +235,12 @@ Ext.define('AW.controller.Loans', {
 		params['loan[end_at]']		= values.end_at;
 
 		return params; 
+	},
+	getParams: function() {
+		var params	= {};
+		params['loan[returned]']	= true;
+
+		return params;
 	},
 	loadList: function(name) {
 		var list = name;
