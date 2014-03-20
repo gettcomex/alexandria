@@ -61,17 +61,10 @@ class LoansController < ApplicationController
 		@loan = Loan.find(params[:id])
 
 		if @loan.update_attributes(params[:loan])
-			render json: @queuelist.id, status: :ok
+			render json: @loan.id, status: :ok
 		else
-			render json: @queuelist.errors, status: :unprocessable_entity
+			render json: @loan.errors, status: :unprocessable_entity
 		end	
-		
-	end
-
-	def set_returned
-		# TODO: refatorar o codigo para poder monitar o sucesso de cada update.
-		Loan.update_all(["returned = true"], 'id' => params[:id])
-		render json: :ok
 	end
 
 	def destroy
