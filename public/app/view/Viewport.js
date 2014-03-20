@@ -1,6 +1,6 @@
 Ext.define('AW.view.Viewport', {
 	extend	: 'Ext.container.Viewport',
-	layout	: 'anchor',
+	layout	: 'fit',
 	items	: [{
 		xtype	: 'tabpanel',
 		region	: 'center',
