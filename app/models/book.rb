@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
 
 	scope :by_availability, lambda { |book_id, today|
 		joins(:loans).where(
-			'loans.book_id = ? and loans.starts_at >= ? and loans.end_at >= ?',
+			'loans.book_id = ? and loans.starts_at >= ? and loans.end_at >= ? and returned = false',
 			book_id, (today - 7.day), today)
 	}
 
