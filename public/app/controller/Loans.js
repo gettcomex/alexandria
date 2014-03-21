@@ -163,23 +163,22 @@ Ext.define('AW.controller.Loans', {
 				var result	= response.responseText,
 					status	= response.status,
 					errors	= result;
-				/*
-				Iria processar o status e questionar se o usuário queria fazer uma reserva. 
+					
 				if (status === 422) { 
 					wait.hide();
 					//MENSAGEM DE ERRO COM CONFIRM. 
 
 					wait  = Ext.Msg.wait('Salvando reserva...');
 
-					Ext.ajax.request({
-						url 	: '/queue_lists', 
-						method  : 'POST', 
-						scope	: me, 
-						params	: params.params, 
+					Ext.Ajax.request({
+						url		: '/queue_lists/',
+						method	: 'POST',
+						scope	: me,
+						params	: me.getParamsQueue(values),
 						callback: function(params, sucess, response) {
 							var result	= response.responseText,
 								status	= response.status,
-								errors	= result; 
+								errors	= result;
 
 							try {
 								result = Ext.decode(result);
@@ -189,10 +188,10 @@ Ext.define('AW.controller.Loans', {
 						win.destroy();
 						}
 					})
+					wait.hide();
 					return; 
 				}
 
-				*/ 
 				wait.hide();
 
 				try {
@@ -226,6 +225,15 @@ Ext.define('AW.controller.Loans', {
 	},
 
 //others methods
+	getParamsQueue: function(values) {
+		var params	= {};
+
+		params['queue_list[book_id]']	= values.book_id;
+		params['queue_list[user_id]']	= values.user_id;
+
+		return params;
+	},
+
 	getParamsWin: function(values) {
 		var params	= {};
 
