@@ -25,28 +25,13 @@ class LoansController < ApplicationController
 
 	def create
 		@loan = Loan.new(params[:loan])
-	
+
 		if @loan.save
 			render json: @loan.id, status: :ok
 			send_mail(@loan)
 		else
-			render json: @loan.errors, status: :unprocessable_entity
-			return false
+			render json: @loan.errors.full_messages, status: :unprocessable_entity
 		end
-		
-
-		#FIXME Verificar o funcionamento.
-		# else
-		# 	# Reserva de livros, não encontramos outra maneira 
-		# 	@queuelist = QueueList.new(params[:loan])
-
-		# 	#FIXME Verificar o funcionamento, se não criar um auto form...
-		# 	if @queuelist.save
-		# 		render json: @queuelist.id, status: :ok
-		# 	else
-		# 		render json: @queuelist.errors, status: :unprocessable_entity
-		# 	end
-		
 	end
 
 	def send_mail(loan)
