@@ -48,6 +48,7 @@ Ext.application({
 	controllers			: [
 		'Books',
 		'Users',
-		'Loans'
+		'Loans',
+		'Viewport'
 	]
 });
