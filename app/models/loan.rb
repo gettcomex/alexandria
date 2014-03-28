@@ -37,7 +37,7 @@ class Loan < ActiveRecord::Base
 	def can_loan?
 
 		if not availability_book?(self.book)
-			errors.add :all_loaned_books, "Todas as cópias do livro #{self.book.title} se encontram emprestadas"
+			errors.add :loan_error, "Todas as cópias do livro #{self.book.title} se encontram emprestadas"
 			return false
 		end
 
@@ -65,7 +65,7 @@ class Loan < ActiveRecord::Base
 		end
 
 		if reserved_book[0].user_id != user
-			errors.add :reserved_book, "O livro não pode ser renovado pois se encontra reservado para outro usuário"
+			errors.add :loan_error, "O livro não pode ser renovado pois se encontra reservado para outro usuário"
 			return false
 		end
 
@@ -77,7 +77,7 @@ class Loan < ActiveRecord::Base
 		user_loans_count = Loan.where("user_id = ? and starts_at >= ? and end_at >= ? and returned = false", self.user_id, 7.days.ago, Time.now).count
 
 		if user_loans_count >= 3 && !self.user.is_employee || user_loans_count >= 10
-			errors.add :limit_loans, "O usuário #{self.user.name} atingiu o limite de empréstimos"
+			errors.add :loan_error, "O usuário #{self.user.name} atingiu o limite de empréstimos"
 			return false
 		end
 	end
