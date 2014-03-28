@@ -97,7 +97,9 @@ Ext.define('AW.controller.Loans', {
 			url		: '/loans/' + recordID,
 			method	: 'PUT',
 			scope	: me,
-			params	: me.getParams(),
+			params	: {
+				'loan[returned]' : true
+			},
 			callback: function(params, sucess, response) {
 				var result	= response.responseText,
 					status	= response.status,
@@ -159,46 +161,56 @@ Ext.define('AW.controller.Loans', {
 			method	: recordID ? 'PUT' : 'POST',
 			scope	: me,  
 			params	: me.getParamsWin(values),
-			callback: function(params, sucess, response) {
-				var result	= response.responseText,
-					status	= response.status,
-					errors	= result;
-					
-				if (status === 422) { 
-					wait.hide();
-					//MENSAGEM DE ERRO COM CONFIRM. 
-
-					wait  = Ext.Msg.wait('Salvando reserva...');
-
-					Ext.Ajax.request({
-						url		: '/queue_lists/',
-						method	: 'POST',
-						scope	: me,
-						params	: me.getParamsQueue(values),
-						callback: function(params, sucess, response) {
-							var result	= response.responseText,
-								status	= response.status,
-								errors	= result;
-
-							try {
-								result = Ext.decode(result);
-							} catch (e) {}
-
-						win.fireEvent('save', result, values)
-						win.destroy();
-						}
-					})
-					wait.hide();
-					return; 
-				}
+			success	: function(params,response) {
+				var result = response.responseText, 
+					status = response.status, 
+					errors = result;
 
 				wait.hide();
 
 				try {
-					result = Ext.decode(result);
-				} catch (e) {}
+					result = Ext.decode(result)
+				}	catch (e) {}
 
 				win.fireEvent('save', result, values);
+				win.destroy();
+			},
+			failure : function(response, params) {
+				wait.hide();
+				
+				var error = Ext.decode(response.responseText);
+
+				if (typeof error.loan_error !== 'undefined') {
+					msg = error.loan_error + '. <br><b>Deseja reservar o livro?</b>';
+					
+					Ext.Msg.confirm("Atenção", msg, function(opt) {
+						if (opt === 'no') {
+							return;
+						}
+						var wait= Ext.Msg.wait('Salvando registro...');
+						Ext.Ajax.request({
+							url		: '/queue_lists/',
+							method	: 'POST',
+							scope	: me,
+							params	: {
+								'queue_list[book_id]' : values.book_id,
+								'queue_list[user_id]' : values.user_id
+							},
+							callback: function(params, sucess, response) {
+								var result	= response.responseText,
+									status	= response.status,
+									errors	= result;
+
+								try {
+									result = Ext.decode(result);
+								} catch (e) {}
+
+							win.fireEvent('save', result, values)
+							wait.hide()
+							}
+						})
+					});
+				}
 				win.destroy();
 			}
 		});
@@ -225,15 +237,6 @@ Ext.define('AW.controller.Loans', {
 	},
 
 //others methods
-	getParamsQueue: function(values) {
-		var params	= {};
-
-		params['queue_list[book_id]']	= values.book_id;
-		params['queue_list[user_id]']	= values.user_id;
-
-		return params;
-	},
-
 	getParamsWin: function(values) {
 		var params	= {};
 
@@ -243,12 +246,6 @@ Ext.define('AW.controller.Loans', {
 		params['loan[end_at]']		= values.end_at;
 
 		return params; 
-	},
-	getParams: function() {
-		var params	= {};
-		params['loan[returned]']	= true;
-
-		return params;
 	},
 	loadList: function(name) {
 		var list = name;
