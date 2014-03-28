@@ -30,7 +30,7 @@ class LoansController < ApplicationController
 			render json: @loan.id, status: :ok
 			send_mail(@loan)
 		else
-			render json: @loan.errors.full_messages, status: :unprocessable_entity
+			render json: @loan.errors, status: :unprocessable_entity
 		end
 	end
 
