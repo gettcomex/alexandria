@@ -1,7 +1,13 @@
 Ext.define('AW.view.Viewport', {
 	extend	: 'Ext.container.Viewport',
-	layout	: 'fit',
+	layout	: 'border',
 	items	: [{
+		region	: 'north',
+		html	: '<p class="x-panel-header" style="text-align: right"><b>Logado como ' + conf.user.email + '</b></p>',
+		//autoHeight: true,
+		border	: false,
+		margins	: '0 5 0 0'
+	},{
 		xtype	: 'tabpanel',
 		region	: 'center',
 		tabBar	: {
