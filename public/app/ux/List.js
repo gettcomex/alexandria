@@ -20,7 +20,7 @@ Ext.define('Ext.ux.List',{
 		},300);
 	},
 
-	auxDelete: function(url, btn, msg, hash, route) {
+	auxDelete: function(url, btn, msg) {
 		var me			= this,
 			list		= btn.up('gridpanel'),
 			loadMask	= list.getView().loadMask,
@@ -46,7 +46,7 @@ Ext.define('Ext.ux.List',{
 			Ext.Ajax.request({
 				url		: url,
 				method	: 'DELETE',
-				success	: function(response) {
+				success	: function() {
 					me.loadList(list);
 
 					Ext.ux.Toast.showSuccess(len === 1 ? 'Registro excluído com sucesso!' : 'Registros excluídos com sucesso!');
@@ -57,7 +57,6 @@ Ext.define('Ext.ux.List',{
 					loadMask.hide();
 					Ext.ux.Win.showMsg(data);
 					me.loadList(list);
-
 				}
 			});
 		});
