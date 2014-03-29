@@ -17,7 +17,8 @@ Ext.define('AW.view.Viewport', {
 				xtype	: 'button',
 				text	: 'Logout',
 				itemID	: 'btnLogout',
-				action	: 'sign_out'
+				action	: 'sign_out',
+				margins	: '3 5 0 0'
 			}]
 		},
 		items	: [{
