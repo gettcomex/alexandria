@@ -57,4 +57,18 @@ class LoansController < ApplicationController
 		render nothing: true
 	end
 
+	def reports
+		@loans = Loan.select("id, book_id, user_id, starts_at, end_at, returned")
+		
+		if params[:loan].present?
+			@loans = @loans.where(params[:loan].delete_if { |k, v| v.empty? })
+		end
+
+		# fixme REDIRECT TO INDEX.
+		respond_to do |format|
+			format.html { render layout: 'system'}
+		end
+
+	end
+
 end
