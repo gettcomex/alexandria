@@ -49,8 +49,9 @@ Ext.application({
 	requires			: [],
 	controllers			: [
 		'Books',
-		'Users',
 		'Loans',
+		'Reports',
+		'Users',
 		'Viewport'
 	]
 });
