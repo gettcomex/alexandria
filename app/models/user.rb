@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_many :queue_lists,	dependent: :destroy
 	has_many :loans,		dependent: :destroy
 

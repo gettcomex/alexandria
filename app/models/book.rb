@@ -1,4 +1,7 @@
 class Book < ActiveRecord::Base
+	extend Enumerize
+
+	enumerize :book_type, in: {:normal => 1, :encadernado => 2, :digital => 3, :manuscrito => 4, :brochura => 5, :nao_informado => 6}, predicates: true, scope: true
 
 	has_many :queue_lists,	dependent: :destroy
 	has_many :loans,		dependent: :destroy
