@@ -76,7 +76,8 @@ Ext.define('AW.view.user.Window', {
 				fieldLabel	: 'Funcionário',
 				name		: 'is_employee',
 				itemId		: 'checkbox_is_employee',
-				value		: false
+				value		: false, 
+				hidden		: !conf.user.is_employee
 			}]
 		}];
 
