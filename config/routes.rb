@@ -16,6 +16,7 @@ Alexandria::Application.routes.draw do
 	resources :loans
 
 	match '/permissions'		=> 'home#permissions'
+	match '/reports'			=> 'loans#reports'
 
 	root :to => "home#index"
 end
