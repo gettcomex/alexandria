@@ -92,67 +92,47 @@ Ext.define('AW.controller.Users', {
 			form		= win.down('form'),
 			values 		= win.down('form').getForm().getValues(); 
 
-		if (!recordID && !form.isValid()) {
-			wait.hide();
+		if (!Ext.ux.Win.isValidWin(win)) {
 			return;
 		}
-		Ext.Ajax.request({
-			url		: '/users/' + (recordID ? recordID : ''),
-			method	: recordID ? 'PUT' : 'POST',
-			scope	: me,  
-			params	: me.getParamsWin(values),
-			callback: function(params, sucess, response) {
-				var result	= response.responseText,
-					status	= response.status,
-					errors	= result;
+		setTimeout(function() { 
+			Ext.Ajax.request({
+				url		: '/users/' + (recordID ? recordID : ''),
+				method	: recordID ? 'PUT' : 'POST',
+				scope	: me,  
+				params	: me.getParamsWin(values),
+				callback: function(params, sucess, response) {
+					var result	= response.responseText,
+						status	= response.status,
+						errors	= result;
 
-				wait.hide();
-				
-				try {
-					result = Ext.decode(result);
-				} catch (e) {}
+					wait.hide();
+					
+					try {
+						result = Ext.decode(result);
+					} catch (e) {}
 
-				win.fireEvent('save', result, values);
-				win.destroy();
-				me.loadList('userlist');
-			}
-		});
+					win.values = values;
+					win.list = 'userlist';
 
+					Ext.ux.Win.callbackSave(win, status, result, errors);
+				}
+			});
+		},300);
 	},
 
 	onClickBtnDelete: function(btn) {
-		var me			= this,
-			list		= btn.up('gridpanel'),
-			selected	= list.getSelectionModel().getSelection(),
-			len 		= selected.length,
-			ids			= [];
-		
-		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
-
-		Ext.Msg.confirm('Atenção', msg, function(opt) {
-			if (opt === 'no') {
-				return;
-			}
-
-			Ext.each(selected, function(r) {
-				ids.push(r.getId());
-			});
-
-			Ext.Ajax.request({
-				url		: '/users/' + ids.join(','),
-				method	: 'DELETE',
-				success	: function(response) {
-					me.loadList('userlist');
-				},
-				failure	: function(response) {
-					var data	= Ext.decode(response.responseText).data;
-				}		
-			})
-		});
+		Ext.ux.List.auxDelete('users/', btn);
 	},
 
 	onShowWin: function(win) {
 		if (win.recordID) {
+
+			var t1 = win.down('#textfield_new_password'),
+				t2 = win.down('#textfield_password_confirmation');
+
+			t1.allowBlank = true;
+			t2.allowBlank = true;
 
 			win.child('form').getForm().load({
 				url			: 'users/' + win.recordID,
@@ -184,17 +164,5 @@ Ext.define('AW.controller.Users', {
 		
 		params['user[is_employee]']	= values.is_employee;
 		return params; 
-	},
-	loadList: function(name) {
-		var list = name;
-		if (Ext.isString(list)) {
-			Ext.each(Ext.ComponentQuery.query(list), function(list) {
-				list.store.loadPage(list.store.currentPage);
-				list.getSelectionModel().deselectAll();
-			});
-		} else {
-			list.store.loadPage(list.store.currentPage);
-			list.getSelectionModel().deselectAll();	
-		}
 	}
 });

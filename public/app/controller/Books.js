@@ -98,7 +98,11 @@ Ext.define('AW.controller.Books', {
 			win 		= btn.up('window'),
 			recordID 	= win.recordID,
 			values 		= win.down('form').getForm().getValues();
-		
+
+		if (!Ext.ux.Win.isValidWin(win)) {
+			return;
+		}
+
 		Ext.Ajax.request({
 			url		: '/books/' + (recordID ? recordID : ''),
 			method	: recordID ? 'PUT' : 'POST',
@@ -115,43 +119,16 @@ Ext.define('AW.controller.Books', {
 					result = Ext.decode(result);
 				} catch (e) {}
 
-				win.fireEvent('save', result, values);
-				win.destroy();
+				win.values = values;
+				win.list = 'booklist';
+
+				Ext.ux.Win.callbackSave(win, status, result, errors);
 			}
 		});
-
-		me.loadList('booklist');
 	},
 
 	onClickBtnDelete: function(btn) {
-		var me			= this,
-			list		= btn.up('gridpanel'),
-			selected	= list.getSelectionModel().getSelection(),
-			len 		= selected.length,
-			ids			= [];
-
-		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
-
-		Ext.Msg.confirm('Atenção', msg, function(opt) {
-			if (opt === 'no') {
-				return;
-			}
-
-			Ext.each(selected, function(r) {
-				ids.push(r.getId());
-			});
-
-			Ext.Ajax.request({
-				url		: '/books/' + ids.join(','),
-				method	: 'DELETE',
-				success	: function(response) {
-					me.loadList('booklist');
-				},
-				failure	: function(response) {
-					var data	= Ext.decode(response.responseText).data;
-				}		
-			})
-		});
+		Ext.ux.List.auxDelete('books/', btn);
 	},
 
 	onClickBtnLoan: function(btn) {
@@ -175,7 +152,7 @@ Ext.define('AW.controller.Books', {
 				} catch (e) {}
 			}
 		});
-		me.loadList('loanlist');
+		Ext.ux.List.loadList('loanlist');
 	},
 
 	onShowWin: function(win) {
@@ -214,17 +191,5 @@ Ext.define('AW.controller.Books', {
 		params['loan[book_id]']		= btn.up('grid').getSelectionModel().getLastSelected().getId();
 
 		return params;
-	},
-	loadList: function(name) {
-		var list = name;
-		if (Ext.isString(list)) {
-			Ext.each(Ext.ComponentQuery.query(list), function(list) {
-				list.store.loadPage(list.store.currentPage);
-				list.getSelectionModel().deselectAll();
-			});
-		} else {
-			list.store.loadPage(list.store.currentPage);
-			list.getSelectionModel().deselectAll();	
-		}
 	}
 });

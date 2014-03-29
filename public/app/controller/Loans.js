@@ -23,27 +23,21 @@ Ext.define('AW.controller.Loans', {
 			'loanlist button[action=add]':{
 				click: me.onClickBtnNew
 			},
-
 			'loanlist button[action=edit]':{
 				click: me.onClickBtnEdit 
 			},
-
 			'loanlist button[action=delete]': {
 				click: me.onClickBtnDelete
 			},
-
 			'loanlist button[action=return_book]' : {
 				click: me.onClickBtnReturn
 			},
-
 			'loanwindow':{
 				show: me.onShowWin
 			},
-
 			'loanwindow button[action=close]':{
 				click: me.onClickBtnClose
 			},
-
 			'loanwindow button[action=save]':{
 				click: me.onClickBtnSave
 			}
@@ -113,34 +107,7 @@ Ext.define('AW.controller.Loans', {
 	},
 
 	onClickBtnDelete: function(btn) {
-		var me			= this,
-			list		= btn.up('gridpanel'),
-			selected	= list.getSelectionModel().getSelection(),
-			len 		= selected.length,
-			ids			= [];
-
-		var msg = (msg ? msg : (len === 1 ? 'Deseja realmente excluir o registro selecionado?' : 'Deseja realmente excluir os <b>'+len+'</b> registros selecionados?'));
-
-		Ext.Msg.confirm('Atenção', msg, function(opt) {
-			if (opt === 'no') {
-				return;
-			}
-
-			Ext.each(selected, function(r) {
-				ids.push(r.getId());
-			});
-
-			Ext.Ajax.request({
-				url		: '/loans/' + ids.join(','),
-				method	: 'DELETE',
-				success	: function(response) {
-					me.loadList('loanlist');
-				},
-				failure	: function(response) {
-					var data	= Ext.decode(response.responseText).data;
-				}		
-			})
-		});
+		Ext.ux.List.auxDelete('loans/', btn);
 	},
 
 	onClickBtnClose: function(btn) {
@@ -155,7 +122,11 @@ Ext.define('AW.controller.Loans', {
 			win 		= btn.up('window'),
 			recordID 	= win.recordID,
 			values 		= win.down('form').getForm().getValues();
-		
+
+		if (!Ext.ux.Win.isValidWin(win)) {
+			return;
+		}
+
 		Ext.Ajax.request({
 			url		: '/loans/' + (recordID ? recordID : ''),
 			method	: recordID ? 'PUT' : 'POST',
@@ -172,8 +143,10 @@ Ext.define('AW.controller.Loans', {
 					result = Ext.decode(result)
 				}	catch (e) {}
 
-				win.fireEvent('save', result, values);
-				win.destroy();
+				win.values	= values;
+				win.list	= 'loanlist';
+
+				Ext.ux.Win.callbackSave(win, status, result, errors);
 			},
 			failure : function(response, params) {
 				wait.hide();
@@ -214,8 +187,6 @@ Ext.define('AW.controller.Loans', {
 				win.destroy();
 			}
 		});
-
-		me.loadList('loanlist');
 	},
 
 	onShowWin: function(win) {
@@ -247,18 +218,6 @@ Ext.define('AW.controller.Loans', {
 
 		return params; 
 	},
-	loadList: function(name) {
-		var list = name;
-		if (Ext.isString(list)) {
-			Ext.each(Ext.ComponentQuery.query(list), function(list) {
-				list.store.loadPage(list.store.currentPage);
-				list.getSelectionModel().deselectAll();
-			});
-		} else {
-			list.store.loadPage(list.store.currentPage);
-			list.getSelectionModel().deselectAll();	
-		}
-	},
 	setDefaultDate: function(win) {
 		var me		= this,
 			dataIni	= win.down('#date_starts_at'),
@@ -266,10 +225,9 @@ Ext.define('AW.controller.Loans', {
 			today	= new Date(),
 			delivery = new Date(today.getTime() + 7*24*60*60*1000);
 
-		dataIni.setValue(me.calcDate(today));
+		dataIni.setValue(today);
 		dataFim.setValue(me.calcDate(delivery));
-
-	}, 
+	},
 	calcDate: function(today) {
 		return (today.getDay() === 6) ? new Date(today.setDate(today.getDate() + 2)) : (today.getDay() === 0) ? new Date(today.setDate(today.getDate() + 1)): today;
 	} 
