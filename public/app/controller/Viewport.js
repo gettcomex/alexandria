@@ -17,13 +17,13 @@ Ext.define('AW.controller.Viewport', {
 	},
 
 //listeners list
-	onClickBtnLogout: function(btn) {
+	onClickBtnLogout: function() {
 		Ext.Ajax.request({
 			url: '/signout',
 			method: 'GET',
-			success: function(response){
-				window.location.reload()
+			callback: function() {
+				window.location.reload();
 			}
-		})
+		});
 	}
 });
