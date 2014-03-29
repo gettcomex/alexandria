@@ -37,6 +37,11 @@ Ext.define('AW.view.loan.List', {
 				itemId	: 'btn_return',
 				disabled: true,
 				hidden	: !conf.user.is_employee
+			},'->',{
+				text	: 'Relatório',
+				action	: 'report',
+				itemId	: 'btn_report',
+				hidden	: !conf.user.is_employee
 			}]
 		},{
 			xtype	: 'toolbar',

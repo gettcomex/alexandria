@@ -3,7 +3,8 @@ Ext.define('AW.controller.Loans', {
 	extend	: 'Ext.app.Controller',
 	views	: [ 
 		'loan.List',
-		'loan.Window'
+		'loan.Window', 
+		'report.Window'
 	],
 	stores	: [
 		'GridLoans', 
@@ -31,6 +32,9 @@ Ext.define('AW.controller.Loans', {
 			},
 			'loanlist button[action=return_book]' : {
 				click: me.onClickBtnReturn
+			},
+			'loanlist button[action=report]' : {
+				click: me.onClickBtnReport
 			},
 			'loanwindow':{
 				show: me.onShowWin
@@ -67,11 +71,9 @@ Ext.define('AW.controller.Loans', {
 			me.onClickBtnEdit(btnEdit);
 		}
 	},
-
 	onClickBtnNew: function() {
 		Ext.widget('loanwindow');
 	},
-
 	onClickBtnEdit: function(btn) {
 		var params = {};
 
@@ -80,6 +82,9 @@ Ext.define('AW.controller.Loans', {
 		// O parametro recordId permite ao metodo enxergar que é uma edição de registro.
 		var win = Ext.widget('loanwindow', params);
 
+	},
+	onClickBtnReport: function() {
+		Ext.widget('reportwindow');
 	},
 
 	onClickBtnReturn: function(btn) {
@@ -105,17 +110,14 @@ Ext.define('AW.controller.Loans', {
 		});
 		me.loadList('loanlist');
 	},
-
 	onClickBtnDelete: function(btn) {
 		Ext.ux.List.auxDelete('loans/', btn);
 	},
-
 	onClickBtnClose: function(btn) {
 		var win = btn.up('window');
 
 		win.destroy();
 	},
-
 	onClickBtnSave: function(btn) {
 		var me 			= this,
 			wait		= Ext.Msg.wait('Salvando registro...'),

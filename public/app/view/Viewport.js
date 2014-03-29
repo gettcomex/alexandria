@@ -36,8 +36,6 @@ Ext.define('AW.view.Viewport', {
 			items	: [{
 				xtype	: 'loanlist'
 			}]
-		},{
-			title	: 'Relatório'
 		}]
 	}]
 });
