@@ -1,21 +1,18 @@
 class HomeController < ApplicationController
 	def permissions
-		
-		@books = Book
-		# renderiza meu json.		
-		 
-		render json: { 
+
+		render json: {
 			user: {
 				id: current_user.id,
-				name: current_user.name, 
-				email: current_user.email, 
+				name: current_user.name,
+				email: current_user.email,
 				login: current_user.login,
 				is_employee: current_user.is_employee?
 			},
 			books: {
-				read:   	current_user.is_employee?,  
+				read:   	current_user.is_employee?,
 				create: 	current_user.is_employee?,
-				update: 	current_user.is_employee?, 
+				update: 	current_user.is_employee?,
 				destroy: 	current_user.is_employee?
 			}
 		}
