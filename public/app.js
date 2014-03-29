@@ -35,9 +35,11 @@ Ext.require([
 	'Ext.tab.Panel',
 	'Ext.toolbar.Paging',
 	'Ext.tree.Panel',
-	'Ext.selection.CheckboxModel', 
-	'Ext.ux.form.Rails'
-
+	'Ext.selection.CheckboxModel',
+	'Ext.ux.form.Rails',
+	'Ext.ux.Win',
+	'Ext.ux.List',
+	'Ext.ux.Toast'
 ]);
 
 Ext.application({
